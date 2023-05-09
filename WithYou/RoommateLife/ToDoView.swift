@@ -55,12 +55,13 @@ struct ToDoView: View {
 
 struct ReminderRow: View {
     @Binding var reminder: Reminder
-    
+    @State private var refresh = false
     
     var body: some View {
         HStack {
             Button(action: {
                 reminder.isTapped.toggle()
+                refresh.toggle()
             }) {
                 Image(systemName: "checkmark")
                     .font(.system(size: 15))
@@ -81,6 +82,7 @@ struct ReminderRow: View {
         .background(Color.white)
         .cornerRadius(10)
         .shadow(color: Color.gray.opacity(0.5), radius: 5, x: 0, y: 2)
+        .id(refresh)
     }
 }
 

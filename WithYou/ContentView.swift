@@ -10,9 +10,6 @@ import SwiftUI
 struct ContentView: View {
     @State private var selection = 1
     
-    init() {
-            UITabBar.appearance().barTintColor = .black
-        }
     
     var body: some View {
         NavigationView {
@@ -23,9 +20,11 @@ struct ContentView: View {
                 Text("Tab Content 1").tabItem { Image(systemName: "gearshape") }.tag(4)
             }
             .accentColor(Color("mainColor"))
+            .onAppear {
+                UITabBar.appearance().backgroundColor = .white
+            }
         }
-        
-        
+        .navigationBarHidden(true)
     }
     
 }

@@ -10,8 +10,11 @@
 		9A371AF129DA905E009B6249 /* ToDoCon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A371AF029DA905E009B6249 /* ToDoCon.swift */; };
 		9A371AF329DA92E3009B6249 /* ToDoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A371AF229DA92E3009B6249 /* ToDoView.swift */; };
 		9A5AE64329DD14D8007164C0 /* MemoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5AE64229DD14D8007164C0 /* MemoListView.swift */; };
+		9A6A2C4229FFB6FB0071FA73 /* TestingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6A2C4129FFB6FB0071FA73 /* TestingView.swift */; };
+		9A6A2C4429FFB9200071FA73 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6A2C4329FFB9200071FA73 /* UserProfile.swift */; };
 		9AD1D76229E9840100565A18 /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD1D76129E9840100565A18 /* Todo.swift */; };
 		9AD1D76429E984A900565A18 /* memo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD1D76329E984A900565A18 /* memo.swift */; };
+		9AD549792A00CAA700A07653 /* UserNameSetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD549782A00CAA700A07653 /* UserNameSetView.swift */; };
 		9AD59D5529D9A37600DF547E /* WithYouApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD59D5429D9A37600DF547E /* WithYouApp.swift */; };
 		9AD59D5729D9A37600DF547E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD59D5629D9A37600DF547E /* ContentView.swift */; };
 		9AD59D5929D9A37700DF547E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AD59D5829D9A37700DF547E /* Assets.xcassets */; };
@@ -24,8 +27,11 @@
 		9A371AF029DA905E009B6249 /* ToDoCon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoCon.swift; sourceTree = "<group>"; };
 		9A371AF229DA92E3009B6249 /* ToDoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoView.swift; sourceTree = "<group>"; };
 		9A5AE64229DD14D8007164C0 /* MemoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoListView.swift; sourceTree = "<group>"; };
+		9A6A2C4129FFB6FB0071FA73 /* TestingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingView.swift; sourceTree = "<group>"; };
+		9A6A2C4329FFB9200071FA73 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		9AD1D76129E9840100565A18 /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
 		9AD1D76329E984A900565A18 /* memo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = memo.swift; sourceTree = "<group>"; };
+		9AD549782A00CAA700A07653 /* UserNameSetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNameSetView.swift; sourceTree = "<group>"; };
 		9AD59D5129D9A37600DF547E /* WithYou.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WithYou.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AD59D5429D9A37600DF547E /* WithYouApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithYouApp.swift; sourceTree = "<group>"; };
 		9AD59D5629D9A37600DF547E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -58,11 +64,21 @@
 			path = RoommateLife;
 			sourceTree = "<group>";
 		};
+		9A6A2C4029FFB6BA0071FA73 /* Testing */ = {
+			isa = PBXGroup;
+			children = (
+				9A6A2C4129FFB6FB0071FA73 /* TestingView.swift */,
+				9AD549782A00CAA700A07653 /* UserNameSetView.swift */,
+			);
+			path = Testing;
+			sourceTree = "<group>";
+		};
 		9AD1D76529E984C000565A18 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				9AD1D76129E9840100565A18 /* Todo.swift */,
 				9AD1D76329E984A900565A18 /* memo.swift */,
+				9A6A2C4329FFB9200071FA73 /* UserProfile.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -88,6 +104,7 @@
 			children = (
 				9AD59D5429D9A37600DF547E /* WithYouApp.swift */,
 				9AD59D5629D9A37600DF547E /* ContentView.swift */,
+				9A6A2C4029FFB6BA0071FA73 /* Testing */,
 				9A4C60B629E7BBB700C8E590 /* RoommateLife */,
 				9AD1D76529E984C000565A18 /* Model */,
 				9AD59D5829D9A37700DF547E /* Assets.xcassets */,
@@ -175,9 +192,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A5AE64329DD14D8007164C0 /* MemoListView.swift in Sources */,
+				9A6A2C4229FFB6FB0071FA73 /* TestingView.swift in Sources */,
 				9AD59D6529D9C0B800DF547E /* WithYouView.swift in Sources */,
+				9AD549792A00CAA700A07653 /* UserNameSetView.swift in Sources */,
 				9AD59D6329D9A3CB00DF547E /* MyProfileConView.swift in Sources */,
 				9AD1D76229E9840100565A18 /* Todo.swift in Sources */,
+				9A6A2C4429FFB9200071FA73 /* UserProfile.swift in Sources */,
 				9AD59D5729D9A37600DF547E /* ContentView.swift in Sources */,
 				9AD59D5529D9A37600DF547E /* WithYouApp.swift in Sources */,
 				9A371AF329DA92E3009B6249 /* ToDoView.swift in Sources */,
