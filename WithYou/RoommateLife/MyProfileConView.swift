@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct MyProfileConView: View {
-    
     @State private var isPressed = false // added @State property
     
     var body: some View {
