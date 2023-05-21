@@ -223,7 +223,6 @@
 				9AD59D6329D9A3CB00DF547E /* MyProfileConView.swift in Sources */,
 				9AD1D76229E9840100565A18 /* Todo.swift in Sources */,
 				9A6A2C4429FFB9200071FA73 /* UserProfile.swift in Sources */,
-				9AD59D5729D9A37600DF547E /* ContentView.swift in Sources */,
 				B380F6302A1545FE00A90011 /* LoginView.swift in Sources */,
 				9AD59D5529D9A37600DF547E /* WithYouApp.swift in Sources */,
 				9A371AF329DA92E3009B6249 /* ToDoView.swift in Sources */,
