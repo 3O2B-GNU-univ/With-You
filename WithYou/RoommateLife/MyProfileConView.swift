@@ -21,8 +21,8 @@ struct MyProfileConView: View {
                             .font(.system(size: 70))
                         Circle()
                             .foregroundColor(isPressed ? .red : .green)
-                            .frame(width: 17, height: 17)
-                            .padding(1)
+                            .frame(width: 20, height: 20)
+                            .padding(4)
                 }
             }
             Text("나")

@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3392B12E2A15FC2000963C1C /* roommateFindView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3392B12D2A15FC2000963C1C /* roommateFindView.swift */; };
+		3392B1302A15FCFA00963C1C /* RoommateInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3392B12F2A15FCFA00963C1C /* RoommateInfoView.swift */; };
+		3392B1322A15FD3900963C1C /* DetailVeiw_Front.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3392B1312A15FD3900963C1C /* DetailVeiw_Front.swift */; };
+		3392B1342A15FD7300963C1C /* DetailViewbackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3392B1332A15FD7300963C1C /* DetailViewbackground.swift */; };
+		3392B1362A15FD8800963C1C /* ChattingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3392B1352A15FD8800963C1C /* ChattingPage.swift */; };
+		3392B1382A15FDA500963C1C /* UserImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3392B1372A15FDA500963C1C /* UserImage.swift */; };
 		9A371AF129DA905E009B6249 /* ToDoCon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A371AF029DA905E009B6249 /* ToDoCon.swift */; };
 		9A371AF329DA92E3009B6249 /* ToDoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A371AF229DA92E3009B6249 /* ToDoView.swift */; };
 		9A5AE64329DD14D8007164C0 /* MemoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5AE64229DD14D8007164C0 /* MemoListView.swift */; };
@@ -21,6 +27,18 @@
 		9AD59D5C29D9A37700DF547E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AD59D5B29D9A37700DF547E /* Preview Assets.xcassets */; };
 		9AD59D6329D9A3CB00DF547E /* MyProfileConView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD59D6229D9A3CB00DF547E /* MyProfileConView.swift */; };
 		9AD59D6529D9C0B800DF547E /* WithYouView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD59D6429D9C0B800DF547E /* WithYouView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3392B12D2A15FC2000963C1C /* roommateFindView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = roommateFindView.swift; sourceTree = "<group>"; };
+		3392B12F2A15FCFA00963C1C /* RoommateInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoommateInfoView.swift; sourceTree = "<group>"; };
+		3392B1312A15FD3900963C1C /* DetailVeiw_Front.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVeiw_Front.swift; sourceTree = "<group>"; };
+		3392B1332A15FD7300963C1C /* DetailViewbackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewbackground.swift; sourceTree = "<group>"; };
+		3392B1352A15FD8800963C1C /* ChattingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingPage.swift; sourceTree = "<group>"; };
+		3392B1372A15FDA500963C1C /* UserImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserImage.swift; sourceTree = "<group>"; };
+		B35C98812A153BDC008614DD /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35C98802A153BDC008614DD /* SettingsView.swift */; };
+		B380F6302A1545FE00A90011 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B380F62F2A1545FE00A90011 /* LoginView.swift */; };
+		B380F6322A154D3200A90011 /* LodingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B380F6312A154D3200A90011 /* LodingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +57,9 @@
 		9AD59D5B29D9A37700DF547E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9AD59D6229D9A3CB00DF547E /* MyProfileConView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileConView.swift; sourceTree = "<group>"; };
 		9AD59D6429D9C0B800DF547E /* WithYouView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithYouView.swift; sourceTree = "<group>"; };
+		B35C98802A153BDC008614DD /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		B380F62F2A1545FE00A90011 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		B380F6312A154D3200A90011 /* LodingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LodingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +73,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3392B1392A15FE0600963C1C /* roommateFind */ = {
+			isa = PBXGroup;
+			children = (
+				3392B12D2A15FC2000963C1C /* roommateFindView.swift */,
+				3392B12F2A15FCFA00963C1C /* RoommateInfoView.swift */,
+				3392B1312A15FD3900963C1C /* DetailVeiw_Front.swift */,
+				3392B1332A15FD7300963C1C /* DetailViewbackground.swift */,
+				3392B1352A15FD8800963C1C /* ChattingPage.swift */,
+				3392B1372A15FDA500963C1C /* UserImage.swift */,
+			);
+			path = roommateFind;
+			sourceTree = "<group>";
+		};
 		9A4C60B629E7BBB700C8E590 /* RoommateLife */ = {
 			isa = PBXGroup;
 			children = (
@@ -104,9 +138,14 @@
 			children = (
 				9AD59D5429D9A37600DF547E /* WithYouApp.swift */,
 				9AD59D5629D9A37600DF547E /* ContentView.swift */,
+				3392B1392A15FE0600963C1C /* roommateFind */,
 				9A6A2C4029FFB6BA0071FA73 /* Testing */,
 				9A4C60B629E7BBB700C8E590 /* RoommateLife */,
 				9AD1D76529E984C000565A18 /* Model */,
+				B380F62E2A1543A500A90011 /* Login */,
+				9A6A2C4029FFB6BA0071FA73 /* Testing */,
+				9A4C60B629E7BBB700C8E590 /* RoommateLife */,
+				B35C987F2A153BA7008614DD /* Setting */,
 				9AD59D5829D9A37700DF547E /* Assets.xcassets */,
 				9AD59D5A29D9A37700DF547E /* Preview Content */,
 			);
@@ -119,6 +158,23 @@
 				9AD59D5B29D9A37700DF547E /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		B35C987F2A153BA7008614DD /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				B35C98802A153BDC008614DD /* SettingsView.swift */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		B380F62E2A1543A500A90011 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				B380F6312A154D3200A90011 /* LodingView.swift */,
+				B380F62F2A1545FE00A90011 /* LoginView.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -191,18 +247,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3392B1302A15FCFA00963C1C /* RoommateInfoView.swift in Sources */,
+				3392B1322A15FD3900963C1C /* DetailVeiw_Front.swift in Sources */,
+				3392B1382A15FDA500963C1C /* UserImage.swift in Sources */,
 				9A5AE64329DD14D8007164C0 /* MemoListView.swift in Sources */,
+				3392B1342A15FD7300963C1C /* DetailViewbackground.swift in Sources */,
 				9A6A2C4229FFB6FB0071FA73 /* TestingView.swift in Sources */,
 				9AD59D6529D9C0B800DF547E /* WithYouView.swift in Sources */,
+				3392B12E2A15FC2000963C1C /* roommateFindView.swift in Sources */,
 				9AD549792A00CAA700A07653 /* UserNameSetView.swift in Sources */,
 				9AD59D6329D9A3CB00DF547E /* MyProfileConView.swift in Sources */,
+				3392B1362A15FD8800963C1C /* ChattingPage.swift in Sources */,
 				9AD1D76229E9840100565A18 /* Todo.swift in Sources */,
 				9A6A2C4429FFB9200071FA73 /* UserProfile.swift in Sources */,
 				9AD59D5729D9A37600DF547E /* ContentView.swift in Sources */,
+				B380F6302A1545FE00A90011 /* LoginView.swift in Sources */,
 				9AD59D5529D9A37600DF547E /* WithYouApp.swift in Sources */,
 				9A371AF329DA92E3009B6249 /* ToDoView.swift in Sources */,
 				9A371AF129DA905E009B6249 /* ToDoCon.swift in Sources */,
 				9AD1D76429E984A900565A18 /* memo.swift in Sources */,
+				B380F6322A154D3200A90011 /* LodingView.swift in Sources */,
+				B35C98812A153BDC008614DD /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

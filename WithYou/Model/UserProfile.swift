@@ -10,11 +10,12 @@ import Foundation
 class User: Identifiable, Codable {
     var id: UUID
     var name: String
+    var imgStr: String
 
-
-    init(id: UUID = UUID(), name: String) {
+    init(id: UUID = UUID(), name: String, imgStr: String = "default") {
         self.id = id
         self.name = name
+        self.imgStr = imgStr
     }
 
 }
