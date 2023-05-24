@@ -9,29 +9,44 @@ import SwiftUI
 
 struct RoommateFindView: View {
     @State private var favorite = false
-    @ObservedObject  var anothers = Anothers()
-    
+    @ObservedObject var anothers = Anothers()
+
+    var filteredAnothers: [Another] {
+        if favorite {
+            return anothers.AnotherArr.filter { $0.favorit }
+        } else {
+            return anothers.AnotherArr
+        }
+    }
+
     var body: some View {
-        NavigationView {
             ZStack(alignment: .bottomTrailing) {
                 VStack {
+                    HStack {
+                        Text("룸메이트 찾기")
+                            .font(.system(size: 36))
+                            .fontWeight(.bold)
+                            .padding(.all)
+                        Spacer()
+                    }
+                        
+                    
                     Toggle("즐겨찾기", isOn: $favorite)
+                        .toggleStyle(SwitchToggleStyle(tint: Color("mainColor")))
                         .padding(.leading, 240)
                         .padding(.trailing, 20)
-                    List(anothers.AnotherArr) { another in
+                    
+                    List(filteredAnothers) { another in
                         ZStack {
-                            NavigationLink(destination:  DetailVeiwFront(another: Another(id: UUID(), name: another.name, categories: another.categories))) {
-                                
+                            NavigationLink(destination: DetailVeiwFront(another: Another(id: UUID(), name: another.name, categories: another.categories))) {
                                 EmptyView()
                             }
                             .opacity(0)
-                            
+
                             RoommateInfoView(another: another)
                                 .frame(height: 84)
                         }
                         .listRowInsets(EdgeInsets())
-                        
-                        
                     }
                     .padding(.top)
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -39,7 +54,7 @@ struct RoommateFindView: View {
                     .ignoresSafeArea()
                 }
                 Button(action: {
-                    // Handle search button action
+                    // 검색 버튼 액션을 처리합니다.
                 }) {
                     Image(systemName: "magnifyingglass")
                         .frame(width: 34, height: 34)
@@ -51,14 +66,9 @@ struct RoommateFindView: View {
                 }
                 .padding()
             }
-            .navigationBarTitle("룸메이트 찾기")
-        }
-        .foregroundColor(.black)
-        .onAppear {
-            // Load data into `AnotherArr`
-        }
     }
 }
+
 
 
 struct RoommateFindView_Previews: PreviewProvider {

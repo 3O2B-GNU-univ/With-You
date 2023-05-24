@@ -31,13 +31,13 @@ class Anothers: ObservableObject {
     
     init() {
            AnotherArr = [
-            Another(name: "샘플 사용자 0",score: 4.2, categories: ["Category 1", "8동", "3학년","ENTJ","9시","22시","없음",
+            Another(name: "샘플 사용자 0",favorit: true, score: 4.2 , categories: ["Category 1", "8동", "3학년","ENTJ","9시","22시","없음",
                                                       "매일","중", "안함", "중간"]),
                Another(name: "샘플 사용자 1", score: 3.4, categories: ["카테고리 2", "1동", "2학년","INTJ","10시","23시","코골이",
                        "매일","상", "안함", "중간"]),
                Another(name: "샘플 사용자 2", categories: ["카테고리 3", "4동", "1학년","ESFJ","7시","21시","없음",
                                                       "이틀","하", "안함", "잘들음"]),
-               Another(name: "샘플 사용자 3",score: 1.7, categories: ["카테고리 4", "3동", "4학년","ENTP","9시","22시","없음",
+               Another(name: "샘플 사용자 3", favorit: true, score: 1.7, categories: ["카테고리 4", "3동", "4학년","ENTP","9시","22시","없음",
                                                       "매일","중", "함", "중간"])
            ]
        }
