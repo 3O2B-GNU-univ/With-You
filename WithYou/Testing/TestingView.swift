@@ -1177,6 +1177,7 @@ struct Survey11View: View {
 struct TestingView: View {
     @State private var currentViewIndex = 0
     @State private var isUserNameSetViewActive = false
+    @State private var user = User()
     
     var body: some View {
         NavigationView {
@@ -1218,7 +1219,7 @@ struct TestingView: View {
                     
                     Spacer()
                     
-                    NavigationLink(destination: UserNameSetView(), isActive: $isUserNameSetViewActive) {
+                    NavigationLink(destination: UserNameSetView(user: $user), isActive: $isUserNameSetViewActive) {
                         Button("다음") {
                             if currentViewIndex < 9 {
                                 currentViewIndex += 1

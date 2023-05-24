@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct UserNameSetView: View {
-    @State private var userName = ""
+    @Binding var user: User
     @State private var isContentViewActive = false
 
     var body: some View {
@@ -19,27 +19,31 @@ struct UserNameSetView: View {
                 .font(.system(size: 30, weight: .bold))
                 .padding(.bottom, 30)
 
-            TextField("닉네임을 입력하세요", text: $userName)
+            TextField("닉네임을 입력하세요", text: $user.name)
                 .padding(.horizontal, 20.0)
                 .padding(.vertical, 10.0)
                 .background(Color.gray.opacity(0.2))
                 .cornerRadius(10.0)
                 .padding(.horizontal, 50.0)
                 .padding(.bottom, 10)
-            NavigationLink(destination: ContentView(), isActive: $isContentViewActive) {
-                Button(action: {
-                    _ = User(name: self.userName)
-                    isContentViewActive = true
-                }) {
-                    Text("확인")
-                        .fontWeight(.semibold)
-                        .foregroundColor(.white)
-                        .padding(.all, 20.0)
-                        .frame(width: 140.0, height: 50.0)
-                        .background(Color("mainColor"))
-                        .cornerRadius(40)
+            NavigationLink(
+                destination: ContentView(user: $user),
+                isActive: $isContentViewActive,
+                label: {
+                    Button(action: {
+                        isContentViewActive = true
+                    }) {
+                        Text("확인")
+                            .fontWeight(.semibold)
+                            .foregroundColor(.white)
+                            .padding(.all, 20.0)
+                            .frame(width: 140.0, height: 50.0)
+                            .background(Color("mainColor"))
+                            .cornerRadius(40)
+                    }
                 }
-            }
+            )
+
             
             Spacer()
         }
@@ -50,6 +54,7 @@ struct UserNameSetView: View {
 
 struct UserNameSetView_Previews: PreviewProvider {
     static var previews: some View {
-        UserNameSetView()
+        let user = User(name: "John Doe") // 임의의 User 객체 생성
+        return UserNameSetView(user: .constant(user))
     }
 }
