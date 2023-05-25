@@ -14,13 +14,11 @@ import SwiftUI
 //}
 
 
-// 테스팅 - 더미 데이터
-var user = User(name: "6관 청소마스터", imgStr: "UserProfile")
-
 
 //Views
 struct SettingsView: View {
     @State private var darkModeEnabled = false
+    @Binding var user: User
     
     // 유저 정보 초기화 및 받아오기 => 차후 정보 불러오기 구현하기
     
@@ -28,11 +26,19 @@ struct SettingsView: View {
         NavigationView {
             VStack(spacing: 0) {
                 HStack(spacing: 0) {
+                    if user.imgStr == "default" {
+                        Image(systemName: "person.circle")
+                            .resizable()
+                            .frame(width: 56, height: 56)
+                            .clipShape(Circle())
+                            .padding(.trailing, 10)
+                    } else {
                         Image(user.imgStr)
                             .resizable()
                             .frame(width: 56, height: 56)
                             .clipShape(Circle())
                             .padding(.trailing, 10)
+                    }
                         VStack(alignment: .leading) {
                             HStack{
                                 Text(user.name)
@@ -51,7 +57,7 @@ struct SettingsView: View {
                 .padding(.leading, 40)
                 .padding(.bottom, 20)
                 VStack {
-                    NavigationLink(destination: userProfileView()) {
+                    NavigationLink(destination: userProfileView(user: $user)) {
                         HStack {
                             Text("유저 프로필")
                                 .foregroundColor(.black)
@@ -101,7 +107,7 @@ struct SettingsView: View {
                             .frame(maxWidth: UIScreen.main.bounds.width - 32)
                             .frame(height: 4)
                         
-                        NavigationLink(destination: userProfileView()) {
+                        NavigationLink(destination: EmptyView()) {
                             HStack {
                                 Text("방 나가기")
                                     .foregroundColor(.black)
@@ -121,7 +127,7 @@ struct SettingsView: View {
                         .overlay(Rectangle().frame(height: 1).foregroundColor(Color(red: 0.98, green: 0.98, blue: 0.98))) // 굵기 조정
                     
                     VStack {
-                        NavigationLink(destination: userProfileView()) {
+                        NavigationLink(destination: EmptyView()) {
                             HStack {
                                 Text("개인정보 처리방침")
                                     .foregroundColor(.black)
@@ -172,7 +178,8 @@ struct SettingsView: View {
 //Previews
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
-        SettingsView()
+        let user = User(name: "John Doe") // 임의의 User 객체 생성
+        return SettingsView(user: .constant(user))
     }
 }
 
@@ -186,13 +193,23 @@ struct aboutView: View {
 
 // 유저 프로필 영역
 struct userProfileView: View {
+    @Binding var user: User
+    
     var body: some View {
         VStack{
-            Image(user.imgStr)
-                .resizable()
-                .frame(width: 136, height: 136)
-                .clipShape(Circle())
-                .padding(.trailing, 10)
+            if user.imgStr == "default" {
+                Image(systemName: "person.circle")
+                    .resizable()
+                    .frame(width: 130, height: 130)
+                    .clipShape(Circle())
+                    .padding(.trailing, 10)
+            } else {
+                Image(user.imgStr)
+                    .resizable()
+                    .frame(width: 130, height: 130)
+                    .clipShape(Circle())
+                    .padding(.trailing, 10)
+            }
             Button("사진 변경"){
                 
             }
@@ -202,7 +219,7 @@ struct userProfileView: View {
                 .background(Color(red: 0.98, green: 0.98, blue: 0.98))
                 .overlay(Rectangle().frame(height: 1).foregroundColor(Color(red: 0.98, green: 0.98, blue: 0.98))) // 굵기 조정
             
-            NavigationLink(destination: nicknameSettingVeiw()) {
+            NavigationLink(destination: nicknameSettingVeiw(user: $user)) {
                 HStack {
                     Text("닉네임 설정")
                         .foregroundColor(.black)
@@ -221,7 +238,7 @@ struct userProfileView: View {
             
             
             
-            NavigationLink(destination: userProfileView()) {
+            NavigationLink(destination: EmptyView()) {
                 HStack {
                     Text("테스트 재시도")
                         .foregroundColor(.black)
@@ -257,13 +274,14 @@ struct userProfileView: View {
 
 // 닉네임 설정 영역
 struct nicknameSettingVeiw: View {
-    @State private var name = user.name
+    @Binding var user: User
+    
     var body: some View {
             VStack(alignment:.leading){
                 Text("닉네임")
                     .bold()
                     .foregroundColor(Color(red: 0.44, green: 0.44, blue: 0.44))
-                TextField("입력해 주세요", text: $name)
+                TextField("입력해 주세요", text: $user.name)
                     .textFieldStyle(.roundedBorder)
 
                 HStack(spacing:1){

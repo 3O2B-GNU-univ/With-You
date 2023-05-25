@@ -32,6 +32,7 @@ struct ToDoView: View {
                     isAddingNewReminder = true
                 }) {
                     Image(systemName: "plus")
+                        .frame(width: 34, height: 34)
                         .font(.title)
                         .padding()
                         .background(Color("mainColor"))
