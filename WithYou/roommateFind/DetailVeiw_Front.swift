@@ -11,7 +11,6 @@ struct DetailVeiwFront: View {
     @State var another: Another
     
     var body: some View {
-        NavigationView {
             VStack {
                 VStack {
                     Spacer()
@@ -118,7 +117,6 @@ struct DetailVeiwFront: View {
                 .padding(.top, 20)
             }
             .padding(.bottom, 400)
-        }
     }
 }
 
