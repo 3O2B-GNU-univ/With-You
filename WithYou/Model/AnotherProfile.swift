@@ -31,14 +31,38 @@ class Anothers: ObservableObject {
     
     init() {
            AnotherArr = [
-            Another(name: "샘플 사용자 0",favorit: true, score: 4.2 , categories: ["Category 1", "8동", "3학년","ENTJ","9시","22시","없음",
+            Another(name: "샘플 사용자 0",favorit: true, score: 4.2 , categories: ["Category 1", "8동", "3학년","E","N","T","J","09시","22시","없음",
                                                       "매일","중", "안함", "중간"]),
-               Another(name: "샘플 사용자 1", score: 3.4, categories: ["카테고리 2", "1동", "2학년","INTJ","10시","23시","코골이",
+               Another(name: "샘플 사용자 1", score: 3.4, categories: ["카테고리 2", "1동", "2학년","I","N","T","J","10시","23시","코골이",
                        "매일","상", "안함", "중간"]),
-               Another(name: "샘플 사용자 2", categories: ["카테고리 3", "4동", "1학년","ESFJ","7시","21시","없음",
+               Another(name: "샘플 사용자 2", categories: ["카테고리 3", "4동", "1학년","E","S","F","J","07시","21시","없음",
                                                       "이틀","하", "안함", "잘들음"]),
-               Another(name: "샘플 사용자 3", favorit: true, score: 1.7, categories: ["카테고리 4", "3동", "4학년","ENTP","9시","22시","없음",
-                                                      "매일","중", "함", "중간"])
+               Another(name: "샘플 사용자 3", favorit: true, score: 1.7, categories: ["카테고리 4", "8동", "2학년","E","N","F","P","06시","23시","코골이",
+                                                      "매일","중", "함", "잘들음"]),
+            Another(name: "샘플 사용자 4", score: 1.7, categories: ["카테고리 4", "10동", "2학년","I","S","T","J","07시","00시","없음",
+                                                   "사흘","상", "안함", "중간"]),
+            Another(name: "샘플 사용자 5",  score: 1.7, categories: ["카테고리 4", "1동", "1학년","E","S","F","P","07시","00시","이갈이",
+                                                   "매일","중", "안함", "못들음"]),
+            Another(name: "샘플 사용자 6", score: 1.7, categories: ["카테고리 4", "개척관", "1학년","I","N","T","J","09시","21시","없음",
+                                                   "나흘","상", "안함", "중간"]),
+            Another(name: "샘플 사용자 7", favorit: true, score: 1.7, categories: ["카테고리 4", "개척관", "1학년","E","S","F","P","08시","00시","잠꼬대",
+                                                   "안함","상", "함", "못들음"]),
+            Another(name: "샘플 사용자 8", score: 1.7, categories: ["카테고리 4", "2동", "3학년","E","S","T","J","08시","01시","몽유병",
+                                                   "매일","중", "안함", "잘들음"]),
+            Another(name: "샘플 사용자 9", favorit: true, score: 1.7, categories: ["카테고리 4", "2동", "3학년","E","N","F","P","10시","02시","몽유병",
+                                                   "사흘","하", "함", "못들음"]),
+            Another(name: "샘플 사용자 10", favorit: true, score: 1.7, categories: ["카테고리 4", "개척관", "4학년","I","S","T","J","11시","02시","잠꼬대",
+                                                   "이틀","중", "안함", "중간"]),
+            Another(name: "샘플 사용자 11", score: 1.7, categories: ["카테고리 4", "10동", "2학년","E","N","F","P","12시","03시","코골이",
+                                                   "안함","하", "함", "잘들음"]),
+            Another(name: "샘플 사용자 12", favorit: true, score: 1.7, categories: ["카테고리 4", "10동", "1학년","E","S","F","J","13시","01시","이갈이",
+                                                   "나흘","중", "안함", "중간"]),
+            Another(name: "샘플 사용자 13", score: 1.7, categories: ["카테고리 4", "1동", "2학년","I","N","F","P","11시","04시","없음",
+                                                   "나흘","하", "함", "잘들음"]),
+            Another(name: "샘플 사용자 14", score: 1.7, categories: ["카테고리 4", "1동", "3학년","I","N","T","P","12시","23시","없음",
+                                                   "사흘","상", "함", "중간"])
+            
+            
            ]
        }
 }

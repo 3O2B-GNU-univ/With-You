@@ -1112,7 +1112,7 @@ struct Survey11View: View {
                 Button(action: {
                     self.selectedButton = 0
                 }) {
-                    Text("잘 못들음")
+                    Text("잘못들음")
                         .fontWeight(.semibold)
                         .foregroundColor(selectedButton == 0 ? Color.white : Color("mainColor"))
                         .padding(.all, 10.0)
@@ -1154,7 +1154,7 @@ struct Survey11View: View {
                 Button(action: {
                     self.selectedButton = 2
                 }) {
-                    Text("잘 들음")
+                    Text("잘들음")
                         .fontWeight(.semibold)
                         .foregroundColor(selectedButton == 2 ? Color.white : Color("mainColor"))
                         .padding(.all, 10.0)
@@ -1206,6 +1206,8 @@ struct TestingView: View {
                     Survey9View()
                 } else if currentViewIndex == 9 {
                     Survey10View()
+                } else if currentViewIndex == 10 {
+                    Survey11View()
                 }
                 
                 Spacer()
@@ -1221,7 +1223,7 @@ struct TestingView: View {
                     
                     NavigationLink(destination: UserNameSetView(user: $user), isActive: $isUserNameSetViewActive) {
                         Button("다음") {
-                            if currentViewIndex < 9 {
+                            if currentViewIndex < 10 {
                                 currentViewIndex += 1
                             } else {
                                 isUserNameSetViewActive = true
