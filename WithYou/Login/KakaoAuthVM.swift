@@ -43,6 +43,7 @@ class KakaoAuthVM: ObservableObject {
                 }
                 else {
                     print("logout() success.")
+                    self.isLoggedIn = false
                 }
             }
         }
@@ -53,6 +54,7 @@ class KakaoAuthVM: ObservableObject {
                 print("DEBUG: 카카오톡 로그인 에러 \(error.localizedDescription)")
             } else {
                 print("DEBUG: 카카오톡 로그인 Success")
+                self.isLoggedIn = true
                 if let token = oauthToken {
                     print("DEBUG: 카카오톡 토큰 \(token)")
 //                    self.loginInFirebase()
@@ -67,6 +69,7 @@ class KakaoAuthVM: ObservableObject {
                 print("DEBUG: 카카오톡 로그인 에러 \(error.localizedDescription)")
             } else {
                 print("DEBUG: 카카오톡 로그인 Success")
+                self.isLoggedIn = true
                 if let token = oauthToken {
                     print("DEBUG: 카카오톡 토큰 \(token)")
 //                    self.loginInFirebase()
