@@ -8,6 +8,12 @@
 import SwiftUI
 
 struct LoginView: View {
+    
+    @StateObject var kakaoAuthVM : KakaoAuthVM = KakaoAuthVM()
+    
+    let loginStatusInfo : (Bool) -> String = { isLoggedIn in return isLoggedIn ? "로그인 상태" : "로그아웃 상태"
+    }
+    
     var body: some View {
         ZStack{
             Color("mainColor")
@@ -20,17 +26,19 @@ struct LoginView: View {
                     .shadow(radius: 10)
                 Spacer()
                 Spacer()
-                Spacer()
                 VStack{
+                    Button(action:{
+                        kakaoAuthVM.kakaoLoginButtonTapped()
+                    }, label : {
+                        Image("kakao_login_large_wide")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width : UIScreen.main.bounds.width * 0.8)
+                    })
                     // 로그인 영역
                     Button("애플 로그인") {
                         // 버튼 클릭 시 실행할 코드
-//                        TestingView()
-                    }
-                    .buttonStyle(.bordered)
-                    .controlSize(.large)
-                    Button("카카오 로그인") {
-                        // 버튼 클릭 시 실행할 코드
+                        kakaoAuthVM.KakaoLogout()
 //                        TestingView()
                     }
                     .buttonStyle(.bordered)
@@ -41,6 +49,7 @@ struct LoginView: View {
                     }
                     .buttonStyle(.bordered)
                     .controlSize(.large)
+                    .hidden()
                 }
                 .tint(Color.black)
             }
