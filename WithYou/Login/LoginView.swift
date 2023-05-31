@@ -12,45 +12,48 @@ struct LoginView: View {
     @StateObject var kakaoAuthVM : KakaoAuthVM = KakaoAuthVM()
     
     var body: some View {
-        ZStack{
-            Color("mainColor")
-                .ignoresSafeArea()
-            VStack{
-                Spacer()
-                Text("위듀")
-                    .font(.system(size: 65, weight: .bold, design: .default))
-                    .foregroundColor(Color.white)
-                    .shadow(radius: 10)
-                Spacer()
-                Spacer()
+        NavigationView{
+            ZStack{
+                Color("mainColor")
+                    .ignoresSafeArea()
                 VStack{
-                    Button(action:{
-                        kakaoAuthVM.kakaoLoginButtonTapped()
-                    }, label : {
-                        Image("kakao_login_large_wide")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width : UIScreen.main.bounds.width * 0.8)
-                    })
-                    // 로그인 영역
-                    Button("애플 로그인") {
-                        // 버튼 클릭 시 실행할 코드
-                        kakaoAuthVM.KakaoLogout()
-//                        TestingView()
+                    Spacer()
+                    Text("위듀")
+                        .font(.system(size: 65, weight: .bold, design: .default))
+                        .foregroundColor(Color.white)
+                        .shadow(radius: 10)
+                    Spacer()
+                    Spacer()
+                    VStack{
+                        Button(action:{
+                            kakaoAuthVM.kakaoLoginButtonTapped()
+                            if (kakaoAuthVM.isLoggedIn == true){
+                                //이부분
+                            }
+                        }, label : {
+                            Image("kakao_login_large_wide")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width : UIScreen.main.bounds.width * 0.8)
+                        })
+                        Button("카카오 로그아웃") {
+                            kakaoAuthVM.KakaoLogout()
+                        }
+                        .buttonStyle(.bordered)
+                        .controlSize(.large)
+                        Button("구글 로그인") {
+                        }
+                        .buttonStyle(.bordered)
+                        .controlSize(.large)
+                        .hidden()
                     }
-                    .buttonStyle(.bordered)
-                    .controlSize(.large)
-                    Button("구글 로그인") {
-                        // 버튼 클릭 시 실행할 코드
-//                        TestingView()
-                    }
-                    .buttonStyle(.bordered)
-                    .controlSize(.large)
-                    .hidden()
+                    .tint(Color.black)
                 }
-                .tint(Color.black)
             }
         }
+        .fullScreenCover(isPresented: $kakaoAuthVM.isLoggedIn, content: {
+                    TestingView()  // TestingView()로 화면 전환
+                })
     }
 }
 
