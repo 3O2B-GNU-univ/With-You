@@ -13,6 +13,8 @@ import KakaoSDKAuth
 @main
 struct WithYouApp: App {
     
+    @StateObject var firestoreManager = FireStoreManager()
+    
     init() {
         //Firebase 세팅
         FirebaseApp.configure()

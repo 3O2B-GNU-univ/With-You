@@ -17,7 +17,6 @@ class KakaoAuthVM: ObservableObject {
     @Published var isLoggedIn : Bool = false
     
 //    var didSendEventClosure: ((EventType) -> Void)?
-    
     func kakaoLoginButtonTapped() {
         if AuthApi.hasToken() {
             UserApi.shared.accessTokenInfo { AccessTokenInfo, error in
