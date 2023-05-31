@@ -131,7 +131,32 @@ struct RoommateFilterView: View {
     var body: some View {
         NavigationView {
             ScrollView {
+                HStack {
+                     Spacer()
+                     Button(action: {
+                         selectedDormitory1 = ""
+                         selectedGrade = ""
+                         selectedMbti1 = ""
+                         selectedMbti2 = ""
+                         selectedMbti3 = ""
+                         selectedMbti4 = ""
+                         selectedWake = ""
+                         selectedC = ""
+                         selectedSleeping = ""
+                         selectedCleaning = ""
+                         selectedSmoking = ""
+                         selectedAlarm = ""
+                         filterArr = Array(repeating: nil, count: 13)
+                     }) {
+                         Image(systemName: "gobackward")
+                         Text("초기화")
+                             .fontWeight(.bold)
+                     }
+                     .padding(/*@START_MENU_TOKEN@*/.trailing, 30.0/*@END_MENU_TOKEN@*/)
+                    
+                 }
                 VStack {
+                    
                     Filter1View(selectedDormitory1: $selectedDormitory1)
                     Filter2View(selectedGrade: $selectedGrade)
                     Filter3View(

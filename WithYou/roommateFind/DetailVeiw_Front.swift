@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DetailVeiwFront: View {
-    @State var another: Another
+    var another: Another
     
     var body: some View {
             VStack {
@@ -95,10 +95,16 @@ struct DetailVeiwFront: View {
                 HStack {
                     VStack(alignment: .leading, spacing: 30) {
                         TextWithCategory(title: "기숙사", category: another.categories[1])
-                        TextWithCategory(title: "MBTI", category: another.categories[3])
-                        TextWithCategory(title: "취침시간", category: another.categories[5])
-                        TextWithCategory(title: "청소주기", category: another.categories[7])
-                        TextWithCategory(title: "흡연 여부", category: another.categories[9])
+                        VStack {
+                            Text("MBTI")
+                                .font(.system(size: 24))
+                                .fontWeight(.bold)
+                                .padding(.bottom, 4.0)
+                            Text("\(another.categories[3])\(another.categories[4])\(another.categories[5])\(another.categories[6])")
+                        }
+                        TextWithCategory(title: "취침시간", category: another.categories[8])
+                        TextWithCategory(title: "청소주기", category: another.categories[10])
+                        TextWithCategory(title: "흡연 여부", category: another.categories[12])
                     }
                     .padding(.leading, 80)
                     
@@ -106,10 +112,10 @@ struct DetailVeiwFront: View {
                     
                     VStack(alignment: .leading, spacing: 30) {
                         TextWithCategory(title: "학년", category: another.categories[2])
-                        TextWithCategory(title: "기상시간", category: another.categories[4])
-                        TextWithCategory(title: "잠버릇", category: another.categories[6])
-                        TextWithCategory(title: "향 민감도", category: another.categories[8])
-                        TextWithCategory(title: "알람소리", category: another.categories[10])
+                        TextWithCategory(title: "기상시간", category: another.categories[7])
+                        TextWithCategory(title: "잠버릇", category: another.categories[9])
+                        TextWithCategory(title: "향 민감도", category: another.categories[11])
+                        TextWithCategory(title: "알람소리", category: another.categories[13])
                     }
                     .padding(.trailing, 80)
                 }
@@ -139,7 +145,7 @@ struct TextWithCategory: View {
 
 struct DetailVeiwFrontPreviews: PreviewProvider {
     static var previews: some View {
-        DetailVeiwFront(another: Another(id: UUID(), name: "Sample User", score: 3.3, categories: ["Category 1", "8동", "3학년","ENTJ","9시","22시","없음",
+        DetailVeiwFront(another: Another(id: UUID(), name: "Sample User", score: 3.3, categories: ["Category 1", "8동", "3학년","E","N","T","J","9시","22시","없음",
             "매일","중", "안함", "중간"]))
     }
 }
