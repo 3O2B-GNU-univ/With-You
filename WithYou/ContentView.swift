@@ -9,15 +9,15 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var selection = 1
-    
+    @Binding var user: User
     
     var body: some View {
         NavigationView {
             TabView(selection: $selection) {
-                Text("Tab Content 1").tabItem { Image(systemName: "magnifyingglass") }.tag(1)
+                RoommateFindView().tabItem { Image(systemName: "magnifyingglass") }.tag(1)
                 WithYouView().tabItem { Image(systemName: "person.2") }.tag(2)
-                Text("Tab Content 1").tabItem { Image(systemName: "message") }.tag(3)
-                SettingsView().tabItem { Image(systemName: "gearshape") }.tag(4)
+                MainMessagesView().tabItem { Image(systemName: "message") }.tag(3)
+                SettingsView(user: $user).tabItem { Image(systemName: "gearshape") }.tag(4)
             }
             .accentColor(Color("mainColor"))
             .onAppear {
@@ -30,7 +30,8 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        let user = User(name: "John Doe") // 임의의 User 객체 생성
+        return ContentView(user: .constant(user))
     }
 }
 

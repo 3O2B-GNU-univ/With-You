@@ -57,7 +57,7 @@ struct Survey1View: View {
 }
 
 struct Survey2View: View {
-    @State private var selectedButton = 0
+    @State private var selectedButton = "1동"
     
     var body: some View {
         VStack {
@@ -69,14 +69,14 @@ struct Survey2View: View {
                 Spacer()
 
                 Button(action: {
-                    self.selectedButton = 0
+                    self.selectedButton = "1동"
                 }) {
                     Text("1동")
                         .fontWeight(.semibold)
-                        .foregroundColor(selectedButton == 0 ? Color.white : Color("mainColor"))
+                        .foregroundColor(selectedButton == "1동" ? Color.white : Color("mainColor"))
                         .padding(.all, 10.0)
                         .frame(width: 140.0, height: 50.0)
-                        .background(selectedButton == 0 ? Color("mainColor") : Color.white)
+                        .background(selectedButton == "1동" ? Color("mainColor") : Color.white)
                         .cornerRadius(40)
                         .overlay(
                             RoundedRectangle(cornerRadius: 40)
@@ -86,14 +86,14 @@ struct Survey2View: View {
                 Spacer()
 
                 Button(action: {
-                    self.selectedButton = 1
+                    self.selectedButton = "2동"
                 }) {
                     Text("2동")
                         .fontWeight(.semibold)
-                        .foregroundColor(selectedButton == 1 ? Color.white : Color("mainColor"))
+                        .foregroundColor(selectedButton == "2동" ? Color.white : Color("mainColor"))
                         .padding(.all, 10.0)
                         .frame(width: 140.0, height: 50.0)
-                        .background(selectedButton == 1 ? Color("mainColor") : Color.white)
+                        .background(selectedButton == "2동" ? Color("mainColor") : Color.white)
                         .cornerRadius(40)
                         .overlay(
                             RoundedRectangle(cornerRadius: 40)
@@ -106,14 +106,14 @@ struct Survey2View: View {
             HStack {
                 Spacer()
                 Button(action: {
-                    self.selectedButton = 2
+                    self.selectedButton = "8동"
                 }) {
                     Text("8동")
                         .fontWeight(.semibold)
-                        .foregroundColor(selectedButton == 2 ? Color.white : Color("mainColor"))
+                        .foregroundColor(selectedButton == "8동" ? Color.white : Color("mainColor"))
                         .padding(.all, 10.0)
                         .frame(width: 140.0, height: 50.0)
-                        .background(selectedButton == 2 ? Color("mainColor") : Color.white)
+                        .background(selectedButton == "8동" ? Color("mainColor") : Color.white)
                         .cornerRadius(40)
                         .overlay(
                             RoundedRectangle(cornerRadius: 40)
@@ -122,14 +122,14 @@ struct Survey2View: View {
                 }
                 Spacer()
                 Button(action: {
-                    self.selectedButton = 3
+                    self.selectedButton = "10동"
                 }) {
                     Text("10동")
                         .fontWeight(.semibold)
-                        .foregroundColor(selectedButton == 3 ? Color.white : Color("mainColor"))
+                        .foregroundColor(selectedButton == "10동" ? Color.white : Color("mainColor"))
                         .padding(.all, 10.0)
                         .frame(width: 140.0, height: 50.0)
-                        .background(selectedButton == 3 ? Color("mainColor") : Color.white)
+                        .background(selectedButton == "10동" ? Color("mainColor") : Color.white)
                         .cornerRadius(40)
                         .overlay(
                             RoundedRectangle(cornerRadius: 40)
@@ -142,14 +142,14 @@ struct Survey2View: View {
             HStack {
                 Spacer()
                 Button(action: {
-                    self.selectedButton = 4
+                    self.selectedButton = "개척관"
                 }) {
                     Text("개척관")
                         .fontWeight(.semibold)
-                        .foregroundColor(selectedButton == 4 ? Color.white : Color("mainColor"))
+                        .foregroundColor(selectedButton == "개척관" ? Color.white : Color("mainColor"))
                         .padding(.all, 10.0)
                         .frame(width: 140.0, height: 50.0)
-                        .background(selectedButton == 4 ? Color("mainColor") : Color.white)
+                        .background(selectedButton == "개척관" ? Color("mainColor") : Color.white)
                         .cornerRadius(40)
                         .overlay(
                             RoundedRectangle(cornerRadius: 40)
@@ -166,7 +166,7 @@ struct Survey2View: View {
 }
 
 struct Survey3View: View {
-    @State private var selectedButton = 0
+    @State private var selectedButton = "1학년"
     
     var body: some View {
         VStack {
@@ -178,14 +178,14 @@ struct Survey3View: View {
                 Spacer()
 
                 Button(action: {
-                    self.selectedButton = 0
+                    self.selectedButton = "1학년"
                 }) {
                     Text("1학년")
                         .fontWeight(.semibold)
-                        .foregroundColor(selectedButton == 0 ? Color.white : Color("mainColor"))
+                        .foregroundColor(selectedButton == "1학년" ? Color.white : Color("mainColor"))
                         .padding(.all, 10.0)
                         .frame(width: 140.0, height: 50.0)
-                        .background(selectedButton == 0 ? Color("mainColor") : Color.white)
+                        .background(selectedButton == "1학년" ? Color("mainColor") : Color.white)
                         .cornerRadius(40)
                         .overlay(
                             RoundedRectangle(cornerRadius: 40)
@@ -195,14 +195,14 @@ struct Survey3View: View {
                 Spacer()
 
                 Button(action: {
-                    self.selectedButton = 1
+                    self.selectedButton = "2학년"
                 }) {
                     Text("2학년")
                         .fontWeight(.semibold)
-                        .foregroundColor(selectedButton == 1 ? Color.white : Color("mainColor"))
+                        .foregroundColor(selectedButton == "2학년" ? Color.white : Color("mainColor"))
                         .padding(.all, 10.0)
                         .frame(width: 140.0, height: 50.0)
-                        .background(selectedButton == 1 ? Color("mainColor") : Color.white)
+                        .background(selectedButton == "2학년" ? Color("mainColor") : Color.white)
                         .cornerRadius(40)
                         .overlay(
                             RoundedRectangle(cornerRadius: 40)
@@ -215,14 +215,14 @@ struct Survey3View: View {
             HStack {
                 Spacer()
                 Button(action: {
-                    self.selectedButton = 2
+                    self.selectedButton = "3학년"
                 }) {
                     Text("3학년")
                         .fontWeight(.semibold)
-                        .foregroundColor(selectedButton == 2 ? Color.white : Color("mainColor"))
+                        .foregroundColor(selectedButton == "3학년" ? Color.white : Color("mainColor"))
                         .padding(.all, 10.0)
                         .frame(width: 140.0, height: 50.0)
-                        .background(selectedButton == 2 ? Color("mainColor") : Color.white)
+                        .background(selectedButton == "3학년" ? Color("mainColor") : Color.white)
                         .cornerRadius(40)
                         .overlay(
                             RoundedRectangle(cornerRadius: 40)
@@ -231,14 +231,14 @@ struct Survey3View: View {
                 }
                 Spacer()
                 Button(action: {
-                    self.selectedButton = 3
+                    self.selectedButton = "4학년"
                 }) {
                     Text("4학년")
                         .fontWeight(.semibold)
-                        .foregroundColor(selectedButton == 3 ? Color.white : Color("mainColor"))
+                        .foregroundColor(selectedButton == "4학년" ? Color.white : Color("mainColor"))
                         .padding(.all, 10.0)
                         .frame(width: 140.0, height: 50.0)
-                        .background(selectedButton == 3 ? Color("mainColor") : Color.white)
+                        .background(selectedButton == "4학년" ? Color("mainColor") : Color.white)
                         .cornerRadius(40)
                         .overlay(
                             RoundedRectangle(cornerRadius: 40)
@@ -254,10 +254,10 @@ struct Survey3View: View {
 }
 
 struct Survey4View: View {
-    @State private var selectedButton = 0
-    @State private var selectedButton1 = 0
-    @State private var selectedButton2 = 0
-    @State private var selectedButton3 = 0
+    @State private var selectedButton = "E"
+    @State private var selectedButton1 = "N"
+    @State private var selectedButton2 = "F"
+    @State private var selectedButton3 = "P"
     
     var body: some View {
         VStack {
@@ -269,14 +269,14 @@ struct Survey4View: View {
                 Spacer()
 
                 Button(action: {
-                    self.selectedButton = 0
+                    self.selectedButton = "E"
                 }) {
                     Text("E")
                         .fontWeight(.semibold)
-                        .foregroundColor(selectedButton == 0 ? Color.white : Color("mainColor"))
+                        .foregroundColor(selectedButton == "E" ? Color.white : Color("mainColor"))
                         .padding(.all, 10.0)
                         .frame(width: 140.0, height: 50.0)
-                        .background(selectedButton == 0 ? Color("mainColor") : Color.white)
+                        .background(selectedButton == "E" ? Color("mainColor") : Color.white)
                         .cornerRadius(40)
                         .overlay(
                             RoundedRectangle(cornerRadius: 40)
@@ -286,14 +286,14 @@ struct Survey4View: View {
                 Spacer()
 
                 Button(action: {
-                    self.selectedButton = 1
+                    self.selectedButton = "I"
                 }) {
                     Text("I")
                         .fontWeight(.semibold)
-                        .foregroundColor(selectedButton == 1 ? Color.white : Color("mainColor"))
+                        .foregroundColor(selectedButton == "I" ? Color.white : Color("mainColor"))
                         .padding(.all, 10.0)
                         .frame(width: 140.0, height: 50.0)
-                        .background(selectedButton == 1 ? Color("mainColor") : Color.white)
+                        .background(selectedButton == "I" ? Color("mainColor") : Color.white)
                         .cornerRadius(40)
                         .overlay(
                             RoundedRectangle(cornerRadius: 40)
@@ -306,14 +306,14 @@ struct Survey4View: View {
             HStack {
                 Spacer()
                 Button(action: {
-                    self.selectedButton1 = 0
+                    self.selectedButton1 = "N"
                 }) {
                     Text("N")
                         .fontWeight(.semibold)
-                        .foregroundColor(selectedButton1 == 0 ? Color.white : Color("mainColor"))
+                        .foregroundColor(selectedButton1 == "N" ? Color.white : Color("mainColor"))
                         .padding(.all, 10.0)
                         .frame(width: 140.0, height: 50.0)
-                        .background(selectedButton1 == 0 ? Color("mainColor") : Color.white)
+                        .background(selectedButton1 == "N" ? Color("mainColor") : Color.white)
                         .cornerRadius(40)
                         .overlay(
                             RoundedRectangle(cornerRadius: 40)
@@ -322,14 +322,14 @@ struct Survey4View: View {
                 }
                 Spacer()
                 Button(action: {
-                    self.selectedButton1 = 1
+                    self.selectedButton1 = "S"
                 }) {
                     Text("S")
                         .fontWeight(.semibold)
-                        .foregroundColor(selectedButton1 == 1 ? Color.white : Color("mainColor"))
+                        .foregroundColor(selectedButton1 == "S" ? Color.white : Color("mainColor"))
                         .padding(.all, 10.0)
                         .frame(width: 140.0, height: 50.0)
-                        .background(selectedButton1 == 1 ? Color("mainColor") : Color.white)
+                        .background(selectedButton1 == "S" ? Color("mainColor") : Color.white)
                         .cornerRadius(40)
                         .overlay(
                             RoundedRectangle(cornerRadius: 40)
@@ -342,14 +342,14 @@ struct Survey4View: View {
             HStack {
                 Spacer()
                 Button(action: {
-                    self.selectedButton2 = 0
+                    self.selectedButton2 = "F"
                 }) {
                     Text("F")
                         .fontWeight(.semibold)
-                        .foregroundColor(selectedButton2 == 0 ? Color.white : Color("mainColor"))
+                        .foregroundColor(selectedButton2 == "F" ? Color.white : Color("mainColor"))
                         .padding(.all, 10.0)
                         .frame(width: 140.0, height: 50.0)
-                        .background(selectedButton2 == 0 ? Color("mainColor") : Color.white)
+                        .background(selectedButton2 == "F" ? Color("mainColor") : Color.white)
                         .cornerRadius(40)
                         .overlay(
                             RoundedRectangle(cornerRadius: 40)
@@ -358,14 +358,14 @@ struct Survey4View: View {
                 }
                 Spacer()
                 Button(action: {
-                    self.selectedButton2 = 1
+                    self.selectedButton2 = "T"
                 }) {
                     Text("T")
                         .fontWeight(.semibold)
-                        .foregroundColor(selectedButton2 == 1 ? Color.white : Color("mainColor"))
+                        .foregroundColor(selectedButton2 == "T" ? Color.white : Color("mainColor"))
                         .padding(.all, 10.0)
                         .frame(width: 140.0, height: 50.0)
-                        .background(selectedButton2 == 1 ? Color("mainColor") : Color.white)
+                        .background(selectedButton2 == "T" ? Color("mainColor") : Color.white)
                         .cornerRadius(40)
                         .overlay(
                             RoundedRectangle(cornerRadius: 40)
@@ -378,14 +378,14 @@ struct Survey4View: View {
             HStack {
                 Spacer()
                 Button(action: {
-                    self.selectedButton3 = 0
+                    self.selectedButton3 = "P"
                 }) {
                     Text("P")
                         .fontWeight(.semibold)
-                        .foregroundColor(selectedButton3 == 0 ? Color.white : Color("mainColor"))
+                        .foregroundColor(selectedButton3 == "P" ? Color.white : Color("mainColor"))
                         .padding(.all, 10.0)
                         .frame(width: 140.0, height: 50.0)
-                        .background(selectedButton3 == 0 ? Color("mainColor") : Color.white)
+                        .background(selectedButton3 == "P" ? Color("mainColor") : Color.white)
                         .cornerRadius(40)
                         .overlay(
                             RoundedRectangle(cornerRadius: 40)
@@ -394,14 +394,14 @@ struct Survey4View: View {
                 }
                 Spacer()
                 Button(action: {
-                    self.selectedButton3 = 1
+                    self.selectedButton3 = "J"
                 }) {
                     Text("J")
                         .fontWeight(.semibold)
-                        .foregroundColor(selectedButton3 == 1 ? Color.white : Color("mainColor"))
+                        .foregroundColor(selectedButton3 == "J" ? Color.white : Color("mainColor"))
                         .padding(.all, 10.0)
                         .frame(width: 140.0, height: 50.0)
-                        .background(selectedButton3 == 1 ? Color("mainColor") : Color.white)
+                        .background(selectedButton3 == "J" ? Color("mainColor") : Color.white)
                         .cornerRadius(40)
                         .overlay(
                             RoundedRectangle(cornerRadius: 40)
@@ -416,7 +416,7 @@ struct Survey4View: View {
 }
 
 struct Survey5View: View {
-    @State private var selectedButton = 0
+    @State private var selectedButton = "06시"
     
     var body: some View {
         VStack {
@@ -428,14 +428,14 @@ struct Survey5View: View {
                 Spacer()
 
                 Button(action: {
-                    self.selectedButton = 0
+                    self.selectedButton = "06시"
                 }) {
                     Text("06시")
                         .fontWeight(.semibold)
-                        .foregroundColor(selectedButton == 0 ? Color.white : Color("mainColor"))
+                        .foregroundColor(selectedButton == "06시" ? Color.white : Color("mainColor"))
                         .padding(.all, 10.0)
                         .frame(width: 140.0, height: 50.0)
-                        .background(selectedButton == 0 ? Color("mainColor") : Color.white)
+                        .background(selectedButton == "06시" ? Color("mainColor") : Color.white)
                         .cornerRadius(40)
                         .overlay(
                             RoundedRectangle(cornerRadius: 40)
@@ -445,14 +445,14 @@ struct Survey5View: View {
                 Spacer()
 
                 Button(action: {
-                    self.selectedButton = 1
+                    self.selectedButton = "07시"
                 }) {
                     Text("07시")
                         .fontWeight(.semibold)
-                        .foregroundColor(selectedButton == 1 ? Color.white : Color("mainColor"))
+                        .foregroundColor(selectedButton == "07시" ? Color.white : Color("mainColor"))
                         .padding(.all, 10.0)
                         .frame(width: 140.0, height: 50.0)
-                        .background(selectedButton == 1 ? Color("mainColor") : Color.white)
+                        .background(selectedButton == "07시" ? Color("mainColor") : Color.white)
                         .cornerRadius(40)
                         .overlay(
                             RoundedRectangle(cornerRadius: 40)
@@ -465,14 +465,14 @@ struct Survey5View: View {
             HStack {
                 Spacer()
                 Button(action: {
-                    self.selectedButton = 2
+                    self.selectedButton = "08시"
                 }) {
                     Text("08시")
                         .fontWeight(.semibold)
-                        .foregroundColor(selectedButton == 2 ? Color.white : Color("mainColor"))
+                        .foregroundColor(selectedButton == "08시" ? Color.white : Color("mainColor"))
                         .padding(.all, 10.0)
                         .frame(width: 140.0, height: 50.0)
-                        .background(selectedButton == 2 ? Color("mainColor") : Color.white)
+                        .background(selectedButton == "08시" ? Color("mainColor") : Color.white)
                         .cornerRadius(40)
                         .overlay(
                             RoundedRectangle(cornerRadius: 40)
@@ -481,14 +481,14 @@ struct Survey5View: View {
                 }
                 Spacer()
                 Button(action: {
-                    self.selectedButton = 3
+                    self.selectedButton = "09시"
                 }) {
                     Text("09시")
                         .fontWeight(.semibold)
-                        .foregroundColor(selectedButton == 3 ? Color.white : Color("mainColor"))
+                        .foregroundColor(selectedButton == "09시" ? Color.white : Color("mainColor"))
                         .padding(.all, 10.0)
                         .frame(width: 140.0, height: 50.0)
-                        .background(selectedButton == 3 ? Color("mainColor") : Color.white)
+                        .background(selectedButton == "09시" ? Color("mainColor") : Color.white)
                         .cornerRadius(40)
                         .overlay(
                             RoundedRectangle(cornerRadius: 40)
@@ -501,14 +501,14 @@ struct Survey5View: View {
             HStack {
                 Spacer()
                 Button(action: {
-                    self.selectedButton = 4
+                    self.selectedButton = "10시"
                 }) {
                     Text("10시")
                         .fontWeight(.semibold)
-                        .foregroundColor(selectedButton == 4 ? Color.white : Color("mainColor"))
+                        .foregroundColor(selectedButton == "10시" ? Color.white : Color("mainColor"))
                         .padding(.all, 10.0)
                         .frame(width: 140.0, height: 50.0)
-                        .background(selectedButton == 4 ? Color("mainColor") : Color.white)
+                        .background(selectedButton == "10시" ? Color("mainColor") : Color.white)
                         .cornerRadius(40)
                         .overlay(
                             RoundedRectangle(cornerRadius: 40)
@@ -517,14 +517,14 @@ struct Survey5View: View {
                 }
                 Spacer()
                 Button(action: {
-                    self.selectedButton = 5
+                    self.selectedButton = "11시"
                 }) {
                     Text("11시")
                         .fontWeight(.semibold)
-                        .foregroundColor(selectedButton == 5 ? Color.white : Color("mainColor"))
+                        .foregroundColor(selectedButton == "11시" ? Color.white : Color("mainColor"))
                         .padding(.all, 10.0)
                         .frame(width: 140.0, height: 50.0)
-                        .background(selectedButton == 5 ? Color("mainColor") : Color.white)
+                        .background(selectedButton == "11시" ? Color("mainColor") : Color.white)
                         .cornerRadius(40)
                         .overlay(
                             RoundedRectangle(cornerRadius: 40)
@@ -537,14 +537,14 @@ struct Survey5View: View {
             HStack {
                 Spacer()
                 Button(action: {
-                    self.selectedButton = 6
+                    self.selectedButton = "12시"
                 }) {
                     Text("12시")
                         .fontWeight(.semibold)
-                        .foregroundColor(selectedButton == 6 ? Color.white : Color("mainColor"))
+                        .foregroundColor(selectedButton == "12시" ? Color.white : Color("mainColor"))
                         .padding(.all, 10.0)
                         .frame(width: 140.0, height: 50.0)
-                        .background(selectedButton == 6 ? Color("mainColor") : Color.white)
+                        .background(selectedButton == "12시" ? Color("mainColor") : Color.white)
                         .cornerRadius(40)
                         .overlay(
                             RoundedRectangle(cornerRadius: 40)
@@ -553,14 +553,14 @@ struct Survey5View: View {
                 }
                 Spacer()
                 Button(action: {
-                    self.selectedButton = 7
+                    self.selectedButton = "13시"
                 }) {
                     Text("13시")
                         .fontWeight(.semibold)
-                        .foregroundColor(selectedButton == 7 ? Color.white : Color("mainColor"))
+                        .foregroundColor(selectedButton == "13시" ? Color.white : Color("mainColor"))
                         .padding(.all, 10.0)
                         .frame(width: 140.0, height: 50.0)
-                        .background(selectedButton == 7 ? Color("mainColor") : Color.white)
+                        .background(selectedButton == "13시" ? Color("mainColor") : Color.white)
                         .cornerRadius(40)
                         .overlay(
                             RoundedRectangle(cornerRadius: 40)
@@ -575,7 +575,7 @@ struct Survey5View: View {
 }
 
 struct Survey6View: View {
-    @State private var selectedButton = 0
+    @State private var selectedButton = "21시"
     
     var body: some View {
         VStack {
@@ -587,14 +587,14 @@ struct Survey6View: View {
                 Spacer()
 
                 Button(action: {
-                    self.selectedButton = 0
+                    self.selectedButton = "21시"
                 }) {
                     Text("21시")
                         .fontWeight(.semibold)
-                        .foregroundColor(selectedButton == 0 ? Color.white : Color("mainColor"))
+                        .foregroundColor(selectedButton == "21시" ? Color.white : Color("mainColor"))
                         .padding(.all, 10.0)
                         .frame(width: 140.0, height: 50.0)
-                        .background(selectedButton == 0 ? Color("mainColor") : Color.white)
+                        .background(selectedButton == "21시" ? Color("mainColor") : Color.white)
                         .cornerRadius(40)
                         .overlay(
                             RoundedRectangle(cornerRadius: 40)
@@ -604,14 +604,14 @@ struct Survey6View: View {
                 Spacer()
 
                 Button(action: {
-                    self.selectedButton = 1
+                    self.selectedButton = "22시"
                 }) {
                     Text("22시")
                         .fontWeight(.semibold)
-                        .foregroundColor(selectedButton == 1 ? Color.white : Color("mainColor"))
+                        .foregroundColor(selectedButton == "22시" ? Color.white : Color("mainColor"))
                         .padding(.all, 10.0)
                         .frame(width: 140.0, height: 50.0)
-                        .background(selectedButton == 1 ? Color("mainColor") : Color.white)
+                        .background(selectedButton == "22시" ? Color("mainColor") : Color.white)
                         .cornerRadius(40)
                         .overlay(
                             RoundedRectangle(cornerRadius: 40)
@@ -624,14 +624,14 @@ struct Survey6View: View {
             HStack {
                 Spacer()
                 Button(action: {
-                    self.selectedButton = 2
+                    self.selectedButton = "23시"
                 }) {
                     Text("23시")
                         .fontWeight(.semibold)
-                        .foregroundColor(selectedButton == 2 ? Color.white : Color("mainColor"))
+                        .foregroundColor(selectedButton == "23시" ? Color.white : Color("mainColor"))
                         .padding(.all, 10.0)
                         .frame(width: 140.0, height: 50.0)
-                        .background(selectedButton == 2 ? Color("mainColor") : Color.white)
+                        .background(selectedButton == "23시" ? Color("mainColor") : Color.white)
                         .cornerRadius(40)
                         .overlay(
                             RoundedRectangle(cornerRadius: 40)
@@ -640,14 +640,14 @@ struct Survey6View: View {
                 }
                 Spacer()
                 Button(action: {
-                    self.selectedButton = 3
+                    self.selectedButton = "00시"
                 }) {
                     Text("00시")
                         .fontWeight(.semibold)
-                        .foregroundColor(selectedButton == 3 ? Color.white : Color("mainColor"))
+                        .foregroundColor(selectedButton == "00시" ? Color.white : Color("mainColor"))
                         .padding(.all, 10.0)
                         .frame(width: 140.0, height: 50.0)
-                        .background(selectedButton == 3 ? Color("mainColor") : Color.white)
+                        .background(selectedButton == "00시" ? Color("mainColor") : Color.white)
                         .cornerRadius(40)
                         .overlay(
                             RoundedRectangle(cornerRadius: 40)
@@ -660,14 +660,14 @@ struct Survey6View: View {
             HStack {
                 Spacer()
                 Button(action: {
-                    self.selectedButton = 4
+                    self.selectedButton = "01시"
                 }) {
                     Text("01시")
                         .fontWeight(.semibold)
-                        .foregroundColor(selectedButton == 4 ? Color.white : Color("mainColor"))
+                        .foregroundColor(selectedButton == "01시" ? Color.white : Color("mainColor"))
                         .padding(.all, 10.0)
                         .frame(width: 140.0, height: 50.0)
-                        .background(selectedButton == 4 ? Color("mainColor") : Color.white)
+                        .background(selectedButton == "01시" ? Color("mainColor") : Color.white)
                         .cornerRadius(40)
                         .overlay(
                             RoundedRectangle(cornerRadius: 40)
@@ -676,14 +676,14 @@ struct Survey6View: View {
                 }
                 Spacer()
                 Button(action: {
-                    self.selectedButton = 5
+                    self.selectedButton = "02시"
                 }) {
                     Text("02시")
                         .fontWeight(.semibold)
-                        .foregroundColor(selectedButton == 5 ? Color.white : Color("mainColor"))
+                        .foregroundColor(selectedButton == "02시" ? Color.white : Color("mainColor"))
                         .padding(.all, 10.0)
                         .frame(width: 140.0, height: 50.0)
-                        .background(selectedButton == 5 ? Color("mainColor") : Color.white)
+                        .background(selectedButton == "02시" ? Color("mainColor") : Color.white)
                         .cornerRadius(40)
                         .overlay(
                             RoundedRectangle(cornerRadius: 40)
@@ -696,14 +696,14 @@ struct Survey6View: View {
             HStack {
                 Spacer()
                 Button(action: {
-                    self.selectedButton = 6
+                    self.selectedButton = "03시"
                 }) {
                     Text("03시")
                         .fontWeight(.semibold)
-                        .foregroundColor(selectedButton == 6 ? Color.white : Color("mainColor"))
+                        .foregroundColor(selectedButton == "03시" ? Color.white : Color("mainColor"))
                         .padding(.all, 10.0)
                         .frame(width: 140.0, height: 50.0)
-                        .background(selectedButton == 6 ? Color("mainColor") : Color.white)
+                        .background(selectedButton == "03시" ? Color("mainColor") : Color.white)
                         .cornerRadius(40)
                         .overlay(
                             RoundedRectangle(cornerRadius: 40)
@@ -712,14 +712,14 @@ struct Survey6View: View {
                 }
                 Spacer()
                 Button(action: {
-                    self.selectedButton = 7
+                    self.selectedButton = "04시"
                 }) {
                     Text("04시")
                         .fontWeight(.semibold)
-                        .foregroundColor(selectedButton == 7 ? Color.white : Color("mainColor"))
+                        .foregroundColor(selectedButton == "04시" ? Color.white : Color("mainColor"))
                         .padding(.all, 10.0)
                         .frame(width: 140.0, height: 50.0)
-                        .background(selectedButton == 7 ? Color("mainColor") : Color.white)
+                        .background(selectedButton == "04시" ? Color("mainColor") : Color.white)
                         .cornerRadius(40)
                         .overlay(
                             RoundedRectangle(cornerRadius: 40)
@@ -845,7 +845,7 @@ struct Survey7View: View {
 }
 
 struct Survey8View: View {
-    @State private var selectedButton = 0
+    @State private var selectedButton = "매일"
 
     
     var body: some View {
@@ -858,14 +858,14 @@ struct Survey8View: View {
                            Spacer()
 
                            Button(action: {
-                               self.selectedButton = 0
+                               self.selectedButton = "매일"
                            }) {
                                Text("매일")
                                    .fontWeight(.semibold)
-                                   .foregroundColor(selectedButton == 0  ? Color.white : Color("mainColor"))
+                                   .foregroundColor(selectedButton == "매일"  ? Color.white : Color("mainColor"))
                                    .padding(.all, 10.0)
                                    .frame(width: 140.0, height: 50.0)
-                                   .background(selectedButton == 0  ? Color("mainColor") : Color.white)
+                                   .background(selectedButton == "매일"  ? Color("mainColor") : Color.white)
                                    .cornerRadius(40)
                                    .overlay(
                                        RoundedRectangle(cornerRadius: 40)
@@ -875,14 +875,14 @@ struct Survey8View: View {
                            Spacer()
 
                            Button(action: {
-                               self.selectedButton = 1
+                               self.selectedButton = "이틀"
                            }) {
                                Text("이틀")
                                    .fontWeight(.semibold)
-                                   .foregroundColor(selectedButton == 1  ? Color.white : Color("mainColor"))
+                                   .foregroundColor(selectedButton == "이틀"  ? Color.white : Color("mainColor"))
                                    .padding(.all, 10.0)
                                    .frame(width: 140.0, height: 50.0)
-                                   .background(selectedButton == 1  ? Color("mainColor") : Color.white)
+                                   .background(selectedButton == "이틀"  ? Color("mainColor") : Color.white)
                                    .cornerRadius(40)
                                    .overlay(
                                        RoundedRectangle(cornerRadius: 40)
@@ -895,14 +895,14 @@ struct Survey8View: View {
                        HStack {
                            Spacer()
                            Button(action: {
-                               self.selectedButton = 2
+                               self.selectedButton = "사흘"
                            }) {
                                Text("사흘")
                                    .fontWeight(.semibold)
-                                   .foregroundColor(selectedButton == 2  ? Color.white : Color("mainColor"))
+                                   .foregroundColor(selectedButton == "사흘"  ? Color.white : Color("mainColor"))
                                    .padding(.all, 10.0)
                                    .frame(width: 140.0, height: 50.0)
-                                   .background(selectedButton == 2  ? Color("mainColor") : Color.white)
+                                   .background(selectedButton == "사흘"  ? Color("mainColor") : Color.white)
                                    .cornerRadius(40)
                                    .overlay(
                                        RoundedRectangle(cornerRadius: 40)
@@ -911,14 +911,14 @@ struct Survey8View: View {
                            }
                            Spacer()
                            Button(action: {
-                               self.selectedButton = 3
+                               self.selectedButton = "나흘"
                            }) {
                                Text("나흘")
                                    .fontWeight(.semibold)
-                                   .foregroundColor(selectedButton == 3  ? Color.white : Color("mainColor"))
+                                   .foregroundColor(selectedButton == "나흘"  ? Color.white : Color("mainColor"))
                                    .padding(.all, 10.0)
                                    .frame(width: 140.0, height: 50.0)
-                                   .background(selectedButton == 3  ? Color("mainColor") : Color.white)
+                                   .background(selectedButton == "나흘"  ? Color("mainColor") : Color.white)
                                    .cornerRadius(40)
                                    .overlay(
                                        RoundedRectangle(cornerRadius: 40)
@@ -931,14 +931,14 @@ struct Survey8View: View {
             HStack {
                 Spacer()
                 Button(action: {
-                    self.selectedButton = 4
+                    self.selectedButton = "주마다"
                 }) {
                     Text("주마다")
                         .fontWeight(.semibold)
-                        .foregroundColor(selectedButton == 4  ? Color.white : Color("mainColor"))
+                        .foregroundColor(selectedButton == "주마다"  ? Color.white : Color("mainColor"))
                         .padding(.all, 10.0)
                         .frame(width: 140.0, height: 50.0)
-                        .background(selectedButton == 4  ? Color("mainColor") : Color.white)
+                        .background(selectedButton == "주마다"  ? Color("mainColor") : Color.white)
                         .cornerRadius(40)
                         .overlay(
                             RoundedRectangle(cornerRadius: 40)
@@ -947,14 +947,14 @@ struct Survey8View: View {
                 }
                 Spacer()
                 Button(action: {
-                    self.selectedButton = 5
+                    self.selectedButton = "안함"
                 }) {
                     Text("안함")
                         .fontWeight(.semibold)
-                        .foregroundColor(selectedButton == 5  ? Color.white : Color("mainColor"))
+                        .foregroundColor(selectedButton == "안함"  ? Color.white : Color("mainColor"))
                         .padding(.all, 10.0)
                         .frame(width: 140.0, height: 50.0)
-                        .background(selectedButton == 5  ? Color("mainColor") : Color.white  )
+                        .background(selectedButton == "안함"  ? Color("mainColor") : Color.white  )
                         .cornerRadius(40)
                         .overlay(
                             RoundedRectangle(cornerRadius: 40)
@@ -1177,6 +1177,7 @@ struct Survey11View: View {
 struct TestingView: View {
     @State private var currentViewIndex = 0
     @State private var isUserNameSetViewActive = false
+    @State private var user = User()
     
     var body: some View {
         NavigationView {
@@ -1218,7 +1219,7 @@ struct TestingView: View {
                     
                     Spacer()
                     
-                    NavigationLink(destination: UserNameSetView(), isActive: $isUserNameSetViewActive) {
+                    NavigationLink(destination: UserNameSetView(user: $user), isActive: $isUserNameSetViewActive) {
                         Button("다음") {
                             if currentViewIndex < 9 {
                                 currentViewIndex += 1
