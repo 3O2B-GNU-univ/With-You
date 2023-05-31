@@ -27,9 +27,6 @@ struct LoginView: View {
                     VStack{
                         Button(action:{
                             kakaoAuthVM.kakaoLoginButtonTapped()
-                            if (kakaoAuthVM.isLoggedIn == true){
-                                //이부분
-                            }
                         }, label : {
                             Image("kakao_login_large_wide")
                                 .resizable()
@@ -52,8 +49,8 @@ struct LoginView: View {
             }
         }
         .fullScreenCover(isPresented: $kakaoAuthVM.isLoggedIn, content: {
-                    TestingView()  // TestingView()로 화면 전환
-                })
+            TestingView()  // TestingView()로 화면 전환
+        })
     }
 }
 
