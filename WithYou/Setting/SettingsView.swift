@@ -356,8 +356,3 @@ struct nicknameSettingVeiw: View {
         .toolbarRole(.editor)
     }
 }
-
-
-// 공지사항 페이지
-// 방 나가기 alert
-// 개인정보 처리방침 페이지
