@@ -27,6 +27,7 @@ struct MyProfileConView: View {
             }
             Text("나")
                 .fontWeight(.regular)
+                .frame(width: 80, height: 10)
         }
     }
 }

@@ -9,6 +9,13 @@ import SwiftUI
 
 struct RoommateInfoView: View {
     var another: Another
+    @State private var refresh: Bool
+    
+    init(another: Another) {
+        self.another = another
+        _refresh = State(initialValue: another.favorit)
+    }
+    
     
     var body: some View {
         HStack(spacing: 20) {
@@ -35,16 +42,21 @@ struct RoommateInfoView: View {
             
             // 찜 및 평균 평점을 넣는 곳
             VStack(alignment: .trailing) {
-                if another.favorit {
-                    Image(systemName: "heart.fill")
-                        .padding(.bottom, 10)
-                        .foregroundColor(.red)
-                } else {
-                    Image(systemName: "heart")
-                        .padding(.bottom, 10)
-                        .foregroundColor(.red)
+                Button(action: {
+                    another.favorit.toggle()
+                    refresh.toggle()
+                }) {
+                    if refresh {
+                        Image(systemName: "heart.fill")
+                            .padding(.bottom, 10)
+                            .foregroundColor(Color.red)
+                    } else {
+                        Image(systemName: "heart")
+                            .padding(.bottom, 10)
+                            .foregroundColor(Color.red)
+                    }
                 }
-                
+                .buttonStyle(PlainButtonStyle())
                 
                 HStack(spacing: 5) {
                     Image(systemName: "star.fill")
