@@ -12,7 +12,6 @@
 import SwiftUI
 
 struct DetailVeiwFront: View {
-    @Binding var selection: Int
     var another: Another
 
     
@@ -36,7 +35,7 @@ struct DetailVeiwFront: View {
                 
                 HStack {
                     Button {
-                        selection = 3
+                        
                     } label: {
                         HStack {
                                 Image(systemName: "message")
@@ -158,7 +157,7 @@ struct DetailVeiwFrontPreviews: PreviewProvider {
     @State static private var selection = 1
     
     static var previews: some View {
-        DetailVeiwFront(selection: $selection, another: Another(id: UUID(), name: "Sample User", score: 3.3, categories: ["Category 1", "8동", "3학년","E","N","T","J","9시","22시","없음",
+        DetailVeiwFront(another: Another(id: UUID(), name: "Sample User", score: 3.3, categories: ["Category 1", "8동", "3학년","E","N","T","J","9시","22시","없음",
             "매일","중", "안함", "중간"]))
     }
 }
