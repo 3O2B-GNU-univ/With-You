@@ -363,7 +363,7 @@ struct nicknameSettingVeiw: View {
                 .buttonStyle(.bordered)
                 .controlSize(.large)
                 .fullScreenCover(isPresented: $isSettingViewPresented, content: {
-                    SettingsView(user:$user)
+                    ContentView(user:$user)
                 })
                 
                 Spacer()
