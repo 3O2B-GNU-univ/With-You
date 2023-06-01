@@ -9,6 +9,12 @@ import SwiftUI
 
 struct DetailVeiwFront: View {
     var another: Another
+    @State private var refresh: Bool
+    
+    init(another: Another) {
+        self.another = another
+        _refresh = State(initialValue: another.favorit)
+    }
     
     var body: some View {
             VStack {
@@ -76,8 +82,9 @@ struct DetailVeiwFront: View {
                         
                         Button(action: {
                             another.favorit.toggle()
+                            refresh.toggle()
                         }) {
-                            if another.favorit {
+                            if refresh {
                                 Image(systemName: "heart.fill")
                                     .padding(.trailing, 10)
                                     .foregroundColor(Color.red)
