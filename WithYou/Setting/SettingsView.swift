@@ -17,6 +17,7 @@ import SwiftUI
 
 //Views
 struct SettingsView: View {
+    
     @State private var darkModeEnabled = false
     @Binding var user: User
     @State private var showSheet = false
@@ -243,6 +244,8 @@ struct SettingsView_Previews: PreviewProvider {
 // 유저 프로필 영역
 struct userProfileView: View {
     @Binding var user: User
+    @State private var isNotLoggedIn = false
+    @StateObject var kakaoAuthVM : KakaoAuthVM = KakaoAuthVM()
     
     var body: some View {
         VStack{
@@ -287,7 +290,7 @@ struct userProfileView: View {
             
             
             
-            NavigationLink(destination: EmptyView()) {
+            NavigationLink(destination: TestingView()) {
                 HStack {
                     Text("테스트 재시도")
                         .foregroundColor(.black)
@@ -306,6 +309,8 @@ struct userProfileView: View {
                 Button("로그아웃"){
                     // 로그아웃 버튼 클릭시
                     // 로그아웃 로직
+                    isNotLoggedIn = true
+                    kakaoAuthVM.KakaoLogout()
                 }
                 .font(.system(size: 10, weight: Font.Weight.bold))
                 .foregroundColor(Color.gray)
@@ -315,43 +320,55 @@ struct userProfileView: View {
         }
         .navigationBarTitle("유저 프로필")
         .toolbarRole(.editor)
+        .fullScreenCover(isPresented: $isNotLoggedIn) {
+            LoginView2() // LoginView로 전환
+        }
         Spacer()
     }
-    
 }
     
 
 // 닉네임 설정 영역
 struct nicknameSettingVeiw: View {
     @Binding var user: User
+    @State private var nickname: String = ""
     
     var body: some View {
-            VStack(alignment:.leading){
-                Text("닉네임")
-                    .bold()
+        VStack(alignment:.leading) {
+            Text("닉네임")
+                .bold()
+                .foregroundColor(Color(red: 0.44, green: 0.44, blue: 0.44))
+            
+            TextField("입력해 주세요", text: $nickname)
+                .textFieldStyle(.roundedBorder)
+            
+            HStack(spacing: 1) {
+                Text("※ 닉네임을 설정하면")
+                    .font(.system(size: 10, weight: .regular, design: .default))
                     .foregroundColor(Color(red: 0.44, green: 0.44, blue: 0.44))
-                TextField("입력해 주세요", text: $user.name)
-                    .textFieldStyle(.roundedBorder)
-
-                HStack(spacing:1){
-                    Text("※ 닉네임을 설정하면")
-                        .font(.system(size: 10, weight: .regular, design: .default))
-                        .foregroundColor(Color(red: 0.44, green: 0.44, blue: 0.44))
-                    Text("10일간 변경할 수 없습니다.")
-                        .font(.system(size: 10, design: .default))
-                        .foregroundColor(Color(red: 0.27, green: 0.61, blue: 0.84))
-                }
+                Text("10일간 변경할 수 없습니다.")
+                    .font(.system(size: 10, design: .default))
+                    .foregroundColor(Color(red: 0.27, green: 0.61, blue: 0.84))
             }
-            .padding(.leading, 25)
+            
             Spacer()
+            
             VStack {
                 Button("닉네임 변경") {
-                    // 버튼 클릭 시 실행할 코드
+                    // 안됨
+                    withAnimation {
+                            user.name = nickname
+                    }
+                    print(nickname)
+                    print(user.name)
                 }
                 .buttonStyle(.bordered)
                 .controlSize(.large)
+                
                 Spacer()
             }
+        }
+        .padding(.leading, 25)
         .navigationBarTitle("닉네임 설정")
         .toolbarRole(.editor)
     }
