@@ -5,9 +5,14 @@
 //  Created by 전제윤 on 2023/05/18.
 //
 
+
+
+
+
 import SwiftUI
 
 struct DetailVeiwFront: View {
+    @Binding var selection: Int
     var another: Another
 
     
@@ -30,19 +35,23 @@ struct DetailVeiwFront: View {
                 Spacer().frame(height: 20)
                 
                 HStack {
-                    HStack {
-                        NavigationLink(destination: ChattingPage()) {
-                            Image(systemName: "message")
-                                .foregroundColor(Color.white)
-                            Text("채팅")
-                                .fontWeight(.heavy)
+                    Button {
+                        selection = 3
+                    } label: {
+                        HStack {
+                                Image(systemName: "message")
+                                    .foregroundColor(Color.white)
+                                Text("채팅")
+                                    .fontWeight(.heavy)
                         }
+                        .padding(10)
+                        .background(Color(red: 0.273, green: 0.609, blue: 0.834))
+                        .foregroundColor(Color.white)
+                        .cornerRadius(30)
+                        .padding(.trailing, 30)
                     }
-                    .padding(10)
-                    .background(Color(red: 0.273, green: 0.609, blue: 0.834))
-                    .foregroundColor(Color.white)
-                    .cornerRadius(30)
-                    .padding(.trailing, 30)
+
+
                     
                     // 프로필 사진
                     if another.imgStr == "default" {
@@ -146,8 +155,10 @@ struct TextWithCategory: View {
 
 
 struct DetailVeiwFrontPreviews: PreviewProvider {
+    @State static private var selection = 1
+    
     static var previews: some View {
-        DetailVeiwFront(another: Another(id: UUID(), name: "Sample User", score: 3.3, categories: ["Category 1", "8동", "3학년","E","N","T","J","9시","22시","없음",
+        DetailVeiwFront(selection: $selection, another: Another(id: UUID(), name: "Sample User", score: 3.3, categories: ["Category 1", "8동", "3학년","E","N","T","J","9시","22시","없음",
             "매일","중", "안함", "중간"]))
     }
 }
