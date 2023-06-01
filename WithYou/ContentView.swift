@@ -16,7 +16,7 @@ struct ContentView: View {
             TabView(selection: $selection) {
                 RoommateFindView().tabItem { Image(systemName: "magnifyingglass") }.tag(1)
                 WithYouView().tabItem { Image(systemName: "person.2") }.tag(2)
-                Text("Tab Content 1").tabItem { Image(systemName: "message") }.tag(3)
+                MainMessagesView().tabItem { Image(systemName: "message") }.tag(3)
                 SettingsView(user: $user).tabItem { Image(systemName: "gearshape") }.tag(4)
             }
             .accentColor(Color("mainColor"))

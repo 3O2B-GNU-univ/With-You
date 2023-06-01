@@ -17,8 +17,12 @@ import SwiftUI
 
 //Views
 struct SettingsView: View {
+    
     @State private var darkModeEnabled = false
     @Binding var user: User
+    @State private var showSheet = false
+    @State private var farewellMessage = ""
+    @State private var showAlert = false
     
     // 유저 정보 초기화 및 받아오기 => 차후 정보 불러오기 구현하기
     
@@ -107,7 +111,9 @@ struct SettingsView: View {
                             .frame(maxWidth: UIScreen.main.bounds.width - 32)
                             .frame(height: 4)
                         
-                        NavigationLink(destination: EmptyView()) {
+                        Button(action: {
+                            self.showAlert = true
+                        }) {
                             HStack {
                                 Text("방 나가기")
                                     .foregroundColor(.black)
@@ -119,6 +125,57 @@ struct SettingsView: View {
                             .padding(.leading, 24)
                             .padding(.trailing, 24)
                         }
+                        .alert(isPresented: $showAlert) {
+                            Alert(
+                                title: Text("방 나가기"),
+                                message: Text("정말로 방을 나가시겠습니까?"),
+                                primaryButton: .destructive(Text("나가기"), action: {
+                                    self.showSheet = true
+                                }),
+                                secondaryButton: .cancel()
+                            )
+                        }
+                        .sheet(isPresented: $showSheet) {
+                            VStack {
+                                Text("작별편지 ✉️")
+                                    .font(.title)
+                                    .fontWeight(.bold)
+                                    .padding(.top, 20)
+
+                                Spacer().frame(height: 20)
+
+                                TextField("룸메이트에게 작별인사를 전하세요!", text: $farewellMessage)
+                                    .padding()
+                                    .background(Color.gray.opacity(0.1))
+                                    .cornerRadius(10)
+                                    .padding(.horizontal, 10)
+                                    .frame(maxWidth: .infinity) // 텍스트 필드 너비 최대로 확장
+
+                                Spacer()
+
+                                Button(action: {
+                                    showAlert = true
+                                }) {
+                                    Text("보내기")
+                                        .font(.headline)
+                                        .foregroundColor(.white)
+                                        .frame(width: 150, height: 50)
+                                        .background(Color.blue)
+                                        .cornerRadius(10)
+                                }
+                                .padding(.bottom, 20)
+                            }
+                            .padding()
+                            .alert(isPresented: $showAlert) {
+                                Alert(
+                                    title: Text("알림"),
+                                    message: Text("룸메이트에게 작별 편지가 전송되었습니다."),
+                                    dismissButton: .default(Text("닫기")) {
+                                        showSheet = false
+                                    }
+                                )
+                            }
+                        }
                     }
                     
                     Divider()
@@ -127,7 +184,7 @@ struct SettingsView: View {
                         .overlay(Rectangle().frame(height: 1).foregroundColor(Color(red: 0.98, green: 0.98, blue: 0.98))) // 굵기 조정
                     
                     VStack {
-                        NavigationLink(destination: EmptyView()) {
+                        NavigationLink(destination: AboutView()) {
                             HStack {
                                 Text("개인정보 처리방침")
                                     .foregroundColor(.black)
@@ -183,17 +240,12 @@ struct SettingsView_Previews: PreviewProvider {
     }
 }
 
-struct aboutView: View {
-    var body: some View {
-        Text("test")
-            .navigationBarTitle("개인정보 처리방침")
-    }
-}
-
 
 // 유저 프로필 영역
 struct userProfileView: View {
     @Binding var user: User
+    @State private var isNotLoggedIn = false
+    @StateObject var kakaoAuthVM : KakaoAuthVM = KakaoAuthVM()
     
     var body: some View {
         VStack{
@@ -238,7 +290,7 @@ struct userProfileView: View {
             
             
             
-            NavigationLink(destination: EmptyView()) {
+            NavigationLink(destination: TestingView()) {
                 HStack {
                     Text("테스트 재시도")
                         .foregroundColor(.black)
@@ -257,6 +309,8 @@ struct userProfileView: View {
                 Button("로그아웃"){
                     // 로그아웃 버튼 클릭시
                     // 로그아웃 로직
+                    isNotLoggedIn = true
+                    kakaoAuthVM.KakaoLogout()
                 }
                 .font(.system(size: 10, weight: Font.Weight.bold))
                 .foregroundColor(Color.gray)
@@ -266,58 +320,56 @@ struct userProfileView: View {
         }
         .navigationBarTitle("유저 프로필")
         .toolbarRole(.editor)
+        .fullScreenCover(isPresented: $isNotLoggedIn) {
+            LoginView2() // LoginView로 전환
+        }
         Spacer()
     }
-    
 }
     
 
 // 닉네임 설정 영역
 struct nicknameSettingVeiw: View {
     @Binding var user: User
+    @State private var nickname: String = ""
     
     var body: some View {
-            VStack(alignment:.leading){
-                Text("닉네임")
-                    .bold()
+        VStack(alignment:.leading) {
+            Text("닉네임")
+                .bold()
+                .foregroundColor(Color(red: 0.44, green: 0.44, blue: 0.44))
+            
+            TextField("입력해 주세요", text: $nickname)
+                .textFieldStyle(.roundedBorder)
+            
+            HStack(spacing: 1) {
+                Text("※ 닉네임을 설정하면")
+                    .font(.system(size: 10, weight: .regular, design: .default))
                     .foregroundColor(Color(red: 0.44, green: 0.44, blue: 0.44))
-                TextField("입력해 주세요", text: $user.name)
-                    .textFieldStyle(.roundedBorder)
-
-                HStack(spacing:1){
-                    Text("※ 닉네임을 설정하면")
-                        .font(.system(size: 10, weight: .regular, design: .default))
-                        .foregroundColor(Color(red: 0.44, green: 0.44, blue: 0.44))
-                    Text("10일간 변경할 수 없습니다.")
-                        .font(.system(size: 10, design: .default))
-                        .foregroundColor(Color(red: 0.27, green: 0.61, blue: 0.84))
-                }
+                Text("10일간 변경할 수 없습니다.")
+                    .font(.system(size: 10, design: .default))
+                    .foregroundColor(Color(red: 0.27, green: 0.61, blue: 0.84))
             }
-            .padding(.leading, 25)
+            
             Spacer()
+            
             VStack {
                 Button("닉네임 변경") {
-                    // 버튼 클릭 시 실행할 코드
+                    // 안됨
+                    withAnimation {
+                            user.name = nickname
+                    }
+                    print(nickname)
+                    print(user.name)
                 }
                 .buttonStyle(.bordered)
                 .controlSize(.large)
+                
                 Spacer()
             }
+        }
+        .padding(.leading, 25)
         .navigationBarTitle("닉네임 설정")
         .toolbarRole(.editor)
     }
 }
-
-
-struct NoticeView: View {
-    var body: some View {
-        Text("공지사항 메인 영역")
-            .navigationBarTitle("공지사항")
-    }
-}
-
-
-
-// 공지사항 페이지
-// 방 나가기 alert
-// 개인정보 처리방침 페이지

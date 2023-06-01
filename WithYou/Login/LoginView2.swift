@@ -1,13 +1,12 @@
 //
-//  LoginView.swift
+//  LoginView2.swift
 //  WithYou
 //
 //  Created by 준호 on 2023/05/18.
 //
-
 import SwiftUI
 
-struct LoginView: View {
+struct LoginView2: View {
     
     @StateObject var kakaoAuthVM : KakaoAuthVM = KakaoAuthVM()
     
@@ -54,8 +53,8 @@ struct LoginView: View {
     }
 }
 
-struct LoginView_Previews: PreviewProvider {
+struct LoginView2_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView()
+        LoginView2()
     }
 }
