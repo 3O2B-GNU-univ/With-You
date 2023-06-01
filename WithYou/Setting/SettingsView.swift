@@ -113,6 +113,7 @@ struct SettingsView: View {
                         
                         Button(action: {
                             self.showAlert = true
+                            print(user.name)
                         }) {
                             HStack {
                                 Text("방 나가기")
@@ -144,12 +145,12 @@ struct SettingsView: View {
 
                                 Spacer().frame(height: 20)
 
-                                TextField("룸메이트에게 작별인사를 전하세요!", text: $farewellMessage)
+                                TextEditor(text: $farewellMessage)
                                     .padding()
                                     .background(Color.gray.opacity(0.1))
                                     .cornerRadius(10)
                                     .padding(.horizontal, 10)
-                                    .frame(maxWidth: .infinity) // 텍스트 필드 너비 최대로 확장
+                                    .frame(maxWidth: .infinity)
 
                                 Spacer()
 
@@ -307,8 +308,6 @@ struct userProfileView: View {
             // 나중에 꼭 디테일 잡기
             HStack(){
                 Button("로그아웃"){
-                    // 로그아웃 버튼 클릭시
-                    // 로그아웃 로직
                     isNotLoggedIn = true
                     kakaoAuthVM.KakaoLogout()
                 }
@@ -332,6 +331,7 @@ struct userProfileView: View {
 struct nicknameSettingVeiw: View {
     @Binding var user: User
     @State private var nickname: String = ""
+    @State private var isSettingViewPresented = false
     
     var body: some View {
         VStack(alignment:.leading) {
@@ -355,15 +355,16 @@ struct nicknameSettingVeiw: View {
             
             VStack {
                 Button("닉네임 변경") {
-                    // 안됨
-                    withAnimation {
-                            user.name = nickname
-                    }
+                    user.name = nickname
                     print(nickname)
                     print(user.name)
+                    isSettingViewPresented = true
                 }
                 .buttonStyle(.bordered)
                 .controlSize(.large)
+                .fullScreenCover(isPresented: $isSettingViewPresented, content: {
+                    SettingsView(user:$user)
+                })
                 
                 Spacer()
             }
