@@ -19,6 +19,9 @@ import SwiftUI
 struct SettingsView: View {
     @State private var darkModeEnabled = false
     @Binding var user: User
+    @State private var showSheet = false
+    @State private var farewellMessage = ""
+    @State private var showAlert = false
     
     // 유저 정보 초기화 및 받아오기 => 차후 정보 불러오기 구현하기
     
@@ -107,7 +110,9 @@ struct SettingsView: View {
                             .frame(maxWidth: UIScreen.main.bounds.width - 32)
                             .frame(height: 4)
                         
-                        NavigationLink(destination: EmptyView()) {
+                        Button(action: {
+                            self.showAlert = true
+                        }) {
                             HStack {
                                 Text("방 나가기")
                                     .foregroundColor(.black)
@@ -119,6 +124,57 @@ struct SettingsView: View {
                             .padding(.leading, 24)
                             .padding(.trailing, 24)
                         }
+                        .alert(isPresented: $showAlert) {
+                            Alert(
+                                title: Text("방 나가기"),
+                                message: Text("정말로 방을 나가시겠습니까?"),
+                                primaryButton: .destructive(Text("나가기"), action: {
+                                    self.showSheet = true
+                                }),
+                                secondaryButton: .cancel()
+                            )
+                        }
+                        .sheet(isPresented: $showSheet) {
+                            VStack {
+                                Text("작별편지 ✉️")
+                                    .font(.title)
+                                    .fontWeight(.bold)
+                                    .padding(.top, 20)
+
+                                Spacer().frame(height: 20)
+
+                                TextField("룸메이트에게 작별인사를 전하세요!", text: $farewellMessage)
+                                    .padding()
+                                    .background(Color.gray.opacity(0.1))
+                                    .cornerRadius(10)
+                                    .padding(.horizontal, 10)
+                                    .frame(maxWidth: .infinity) // 텍스트 필드 너비 최대로 확장
+
+                                Spacer()
+
+                                Button(action: {
+                                    showAlert = true
+                                }) {
+                                    Text("보내기")
+                                        .font(.headline)
+                                        .foregroundColor(.white)
+                                        .frame(width: 150, height: 50)
+                                        .background(Color.blue)
+                                        .cornerRadius(10)
+                                }
+                                .padding(.bottom, 20)
+                            }
+                            .padding()
+                            .alert(isPresented: $showAlert) {
+                                Alert(
+                                    title: Text("알림"),
+                                    message: Text("룸메이트에게 작별 편지가 전송되었습니다."),
+                                    dismissButton: .default(Text("닫기")) {
+                                        showSheet = false
+                                    }
+                                )
+                            }
+                        }
                     }
                     
                     Divider()
@@ -127,7 +183,7 @@ struct SettingsView: View {
                         .overlay(Rectangle().frame(height: 1).foregroundColor(Color(red: 0.98, green: 0.98, blue: 0.98))) // 굵기 조정
                     
                     VStack {
-                        NavigationLink(destination: EmptyView()) {
+                        NavigationLink(destination: AboutView()) {
                             HStack {
                                 Text("개인정보 처리방침")
                                     .foregroundColor(.black)
@@ -180,13 +236,6 @@ struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
         let user = User(name: "John Doe") // 임의의 User 객체 생성
         return SettingsView(user: .constant(user))
-    }
-}
-
-struct aboutView: View {
-    var body: some View {
-        Text("test")
-            .navigationBarTitle("개인정보 처리방침")
     }
 }
 
@@ -265,7 +314,7 @@ struct userProfileView: View {
             }
         }
         .navigationBarTitle("유저 프로필")
-//        .toolbarRole(.editor)
+        .toolbarRole(.editor)
         Spacer()
     }
     
@@ -304,21 +353,6 @@ struct nicknameSettingVeiw: View {
                 Spacer()
             }
         .navigationBarTitle("닉네임 설정")
-//        .toolbarRole(.editor)
+        .toolbarRole(.editor)
     }
 }
-
-
-struct NoticeView: View {
-    var body: some View {
-        Text("공지사항 메인 영역")
-            .navigationBarTitle("공지사항")
-    }
-}
-
-
-
-// 공지사항 페이지
-// 방 나가기 alert
-// 개인정보 처리방침 페이지
-

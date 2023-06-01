@@ -48,6 +48,8 @@
 		B370E81E2A279D3600B9BCC2 /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = B370E81D2A279D3600B9BCC2 /* KakaoSDKUser */; };
 		B370E8222A27A07F00B9BCC2 /* KakaoAuthVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B370E8212A27A07F00B9BCC2 /* KakaoAuthVM.swift */; };
 		B380F6302A1545FE00A90011 /* LoginView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = B380F62F2A1545FE00A90011 /* LoginView2.swift */; };
+		B370E8252A27E8AC00B9BCC2 /* NoticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B370E8242A27E8AC00B9BCC2 /* NoticeView.swift */; };
+		B370E8272A27EACA00B9BCC2 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B370E8262A27EACA00B9BCC2 /* AboutView.swift */; };
 		B380F6322A154D3200A90011 /* LodingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B380F6312A154D3200A90011 /* LodingView.swift */; };
 /* End PBXBuildFile section */
 
@@ -87,6 +89,8 @@
 		B370E8202A279DDE00B9BCC2 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		B370E8212A27A07F00B9BCC2 /* KakaoAuthVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoAuthVM.swift; sourceTree = "<group>"; };
 		B380F62F2A1545FE00A90011 /* LoginView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView2.swift; sourceTree = "<group>"; };
+		B370E8242A27E8AC00B9BCC2 /* NoticeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeView.swift; sourceTree = "<group>"; };
+		B370E8262A27EACA00B9BCC2 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		B380F6312A154D3200A90011 /* LodingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LodingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -242,6 +246,8 @@
 			isa = PBXGroup;
 			children = (
 				B35C98802A153BDC008614DD /* SettingsView.swift */,
+				B370E8242A27E8AC00B9BCC2 /* NoticeView.swift */,
+				B370E8262A27EACA00B9BCC2 /* AboutView.swift */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -353,6 +359,7 @@
 				9AD59D6529D9C0B800DF547E /* WithYouView.swift in Sources */,
 				331AC5E02A28717500E47ACD /* ChatUser.swift in Sources */,
 				3392B12E2A15FC2000963C1C /* RoommateFindView.swift in Sources */,
+				B370E8252A27E8AC00B9BCC2 /* NoticeView.swift in Sources */,
 				9AD549792A00CAA700A07653 /* UserNameSetView.swift in Sources */,
 				9AD59D6329D9A3CB00DF547E /* MyProfileConView.swift in Sources */,
 				3392B1362A15FD8800963C1C /* ChattingPage.swift in Sources */,
@@ -366,6 +373,7 @@
 				331AC5E72A28718E00E47ACD /* FirebaseManager.swift in Sources */,
 				B380F6302A1545FE00A90011 /* LoginView2.swift in Sources */,
 				331AC5E62A28718E00E47ACD /* FirebaseConstants.swift in Sources */,
+				B370E8272A27EACA00B9BCC2 /* AboutView.swift in Sources */,
 				9AD59D5529D9A37600DF547E /* WithYouApp.swift in Sources */,
 				9A371AF329DA92E3009B6249 /* ToDoView.swift in Sources */,
 				9A371AF129DA905E009B6249 /* ToDoCon.swift in Sources */,
