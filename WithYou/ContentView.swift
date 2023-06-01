@@ -15,7 +15,11 @@ struct ContentView: View {
         NavigationView {
             TabView(selection: $selection) {
                 RoommateFindView().tabItem { Image(systemName: "magnifyingglass") }.tag(1)
-                WithYouView().tabItem { Image(systemName: "person.2") }.tag(2)
+                if user.roommate != nil {
+                    Text("룸메이트가 없습니다.").tabItem { Image(systemName: "person.2") }.tag(2)
+                } else {
+                    WithYouView().tabItem { Image(systemName: "person.2") }.tag(2)
+                }
                 MainMessagesView().tabItem { Image(systemName: "message") }.tag(3)
                 SettingsView(user: $user).tabItem { Image(systemName: "gearshape") }.tag(4)
             }

@@ -14,14 +14,18 @@ class Another: Identifiable, Codable {
     var favorit: Bool
     var score: Float
     var categories: [String]
+    var inRoom: Bool
+    var roommate: User?
 
-    init(id: UUID = UUID(), name: String = "", imgStr: String = "default", favorit: Bool = false, score: Float = 0, categories: [String] = []) {
+    init(id: UUID = UUID(), name: String = "", imgStr: String = "default", favorit: Bool = false, score: Float = 0, categories: [String] = [], inRoom: Bool = false, roommate: User? = nil) {
         self.id = id
         self.name = name
         self.imgStr = imgStr
         self.favorit = favorit
         self.score = score
         self.categories = categories
+        self.inRoom = inRoom
+        self.roommate = roommate
     }
 }
 

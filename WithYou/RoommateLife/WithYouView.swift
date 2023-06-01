@@ -13,7 +13,9 @@ struct WithYouView: View {
             VStack {
                 HStack {
                     MyProfileConView()
-                        .padding([.top, .leading, .trailing])
+                        .padding([.top, .leading])
+                    roomnateProfileView(roommate: Another(id: UUID(), name: "6관 청소 마스터", categories: ["Category 1", "8동", "2학년"]))
+                        .padding([.top, .trailing])
                     Spacer()
                 }
                 

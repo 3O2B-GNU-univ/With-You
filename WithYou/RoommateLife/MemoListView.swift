@@ -20,19 +20,22 @@ struct MemoListView: View {
                     if !memos.memosArr.filter({ $0.fixed }).isEmpty {
                             Section(header: Text("고정된 메모")) {
                                 ForEach(memos.memosArr.filter { $0.fixed }) { memo in
-                                    NavigationLink(destination: MemoDetail(memo: $memos.memosArr[memos.memosArr.firstIndex(of: memo)!])) {
-                                        HStack {
-                                            VStack(alignment: .leading) { Text(memo.title.prefix(30)).font(.headline)
-                                                Text(memo.text.prefix(100) + "...")
-                                                    .lineLimit(4)
+                                    ZStack{
+                                        NavigationLink(destination: MemoDetail(memo: $memos.memosArr[memos.memosArr.firstIndex(of: memo)!])) {
+                                            HStack {
+                                                VStack(alignment: .leading) { Text(memo.title.prefix(30)).font(.headline)
+                                                    Text(memo.text.prefix(100) + "...")
+                                                        .lineLimit(4)
+                                                }
+                                            Spacer()
                                             }
-                                        Spacer()
+                                            .padding()
                                         }
-                                        .padding()
+                                        .background(Color.white)
+                                        .cornerRadius(10)
+                                        .shadow(color: Color.gray.opacity(0.5), radius: 5, x: 0, y: 2)
                                     }
-                                    .background(Color.white)
-                                    .cornerRadius(10)
-                                    .shadow(color: Color.gray.opacity(0.5), radius: 5, x: 0, y: 2)
+                                    
                                 }
                                 .onDelete(perform: memos.removeMemo)
                             }
@@ -93,8 +96,10 @@ struct MemoDetail: View {
     var body: some View {
         VStack {
             TextField("제목", text: $memo.title)
+                .padding(.leading)
                 .font(.system(size: 20, weight: .bold))
             TextEditor(text: $memo.text)
+                .padding(.leading)
             Spacer()
         }
         .toolbar {
@@ -118,8 +123,10 @@ struct NewMemoView: View {
     var body: some View {
             VStack {
                 TextField("제목", text: $newMemoTitle)
+                    .padding(.leading)
                     .font(.system(size: 20, weight: .bold))
                 TextEditor(text: $newMemoText)
+                    .padding(.leading)
                 Spacer()
             }
             .toolbar {
