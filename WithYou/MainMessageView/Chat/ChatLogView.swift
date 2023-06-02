@@ -212,9 +212,6 @@ struct ChatLogView: View {
     
     private var chatBottomBar: some View {
         HStack(spacing: 16) {
-            Image(systemName: "photo.on.rectangle")
-                .font(.system(size: 24))
-                .foregroundColor(Color(.darkGray))
             ZStack {
                 DescriptionPlaceholder()
                 TextEditor(text: $vm.chatText)
@@ -225,12 +222,12 @@ struct ChatLogView: View {
             Button {
                 vm.handleSend()
             } label: {
-                Text("Send")
+                Text("전송")
                     .foregroundColor(.white)
             }
             .padding(.horizontal)
             .padding(.vertical, 8)
-            .background(Color.blue)
+            .background(Color("mainColor"))
             .cornerRadius(4)
         }
         .padding(.horizontal)
@@ -252,7 +249,7 @@ struct MessageView: View {
                             .foregroundColor(.white)
                     }
                     .padding()
-                    .background(Color.blue)
+                    .background(Color("mainColor"))
                     .cornerRadius(8)
                 }
             } else {
