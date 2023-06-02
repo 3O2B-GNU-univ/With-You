@@ -7,8 +7,74 @@
 
 import SwiftUI
 
+struct TestingView: View {
+    @State private var currentViewIndex = 0
+    @State private var isUserNameSetViewActive = false
+    @State private var user = User()
+    
+    var body: some View {
+        NavigationView {
+            VStack {
+                ProgressView(value: Double(currentViewIndex), total: Double(10))
+                    .padding(.all)
+                    .progressViewStyle(LinearProgressViewStyle(tint: Color("mainColor")))
+                
+                if currentViewIndex == 0 {
+                    Survey1View(user: $user)
+                } else if currentViewIndex == 1 && user.gender == "남성"{
+                    Survey2View()
+                } else if currentViewIndex == 1 && user.gender == "여성"{
+                    Survey2_1View()
+                } else if currentViewIndex == 2 {
+                    Survey3View()
+                }  else if currentViewIndex == 3 {
+                    Survey4View()
+                } else if currentViewIndex == 4 {
+                    Survey5View()
+                } else if currentViewIndex == 5 {
+                    Survey6View()
+                } else if currentViewIndex == 6 {
+                    Survey7View()
+                } else if currentViewIndex == 7 {
+                    Survey8View()
+                } else if currentViewIndex == 8 {
+                    Survey9View()
+                } else if currentViewIndex == 9 {
+                    Survey10View()
+                } else if currentViewIndex == 10 {
+                    Survey11View()
+                }
+                
+                Spacer()
+                
+                HStack {
+                    if currentViewIndex > 0 {
+                        Button("이전") {
+                            currentViewIndex -= 1
+                        }
+                    }
+                    
+                    Spacer()
+                    
+                    NavigationLink(destination: UserNameSetView(user: $user), isActive: $isUserNameSetViewActive) {
+                        Button("다음") {
+                            if currentViewIndex < 10 {
+                                currentViewIndex += 1
+                            } else {
+                                isUserNameSetViewActive = true
+                            }
+                        }
+                    }
+                }
+                .padding()
+            }
+        }
+    }
+}
+
 struct Survey1View: View {
     @State private var selectedButton = 0
+    @Binding var user: User
     
     var body: some View {
         VStack {
@@ -20,6 +86,7 @@ struct Survey1View: View {
                 Spacer()
                 Button(action: {
                     self.selectedButton = 0
+                    user.gender = "남성"
                 }) {
                     Text("남성")
                         .fontWeight(.semibold)
@@ -36,6 +103,7 @@ struct Survey1View: View {
                 Spacer()
                 Button(action: {
                     self.selectedButton = 1
+                    user.gender = "여성"
                 }) {
                     Text("여성")
                         .fontWeight(.semibold)
@@ -55,7 +123,7 @@ struct Survey1View: View {
         }
     }
 }
-
+//남자 기숙사
 struct Survey2View: View {
     @State private var selectedButton = "1동"
     
@@ -94,6 +162,42 @@ struct Survey2View: View {
                         .padding(.all, 10.0)
                         .frame(width: 140.0, height: 50.0)
                         .background(selectedButton == "2동" ? Color("mainColor") : Color.white)
+                        .cornerRadius(40)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 40)
+                                .stroke(Color("mainColor"), lineWidth: 2)
+                        )
+                }
+                Spacer()
+            }
+            .padding(.bottom, 20)
+            HStack {
+                Spacer()
+                Button(action: {
+                    self.selectedButton = "3동"
+                }) {
+                    Text("3동")
+                        .fontWeight(.semibold)
+                        .foregroundColor(selectedButton == "3동" ? Color.white : Color("mainColor"))
+                        .padding(.all, 10.0)
+                        .frame(width: 140.0, height: 50.0)
+                        .background(selectedButton == "3동" ? Color("mainColor") : Color.white)
+                        .cornerRadius(40)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 40)
+                                .stroke(Color("mainColor"), lineWidth: 2)
+                        )
+                }
+                Spacer()
+                Button(action: {
+                    self.selectedButton = "6동"
+                }) {
+                    Text("6동")
+                        .fontWeight(.semibold)
+                        .foregroundColor(selectedButton == "6동" ? Color.white : Color("mainColor"))
+                        .padding(.all, 10.0)
+                        .frame(width: 140.0, height: 50.0)
+                        .background(selectedButton == "6동" ? Color("mainColor") : Color.white)
                         .cornerRadius(40)
                         .overlay(
                             RoundedRectangle(cornerRadius: 40)
@@ -150,6 +254,115 @@ struct Survey2View: View {
                         .padding(.all, 10.0)
                         .frame(width: 140.0, height: 50.0)
                         .background(selectedButton == "개척관" ? Color("mainColor") : Color.white)
+                        .cornerRadius(40)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 40)
+                                .stroke(Color("mainColor"), lineWidth: 2)
+                        )
+                }
+                Spacer()
+
+            }
+
+            Spacer()
+        }
+    }
+}
+//여자 기숙사
+struct Survey2_1View: View {
+    @State private var selectedButton = "4동"
+    
+    var body: some View {
+        VStack {
+            Text("기숙사 정보를 알려주세요.")
+                .font(.system(size: 30, weight: .bold))
+                .padding(.top, 50)
+                .padding(.bottom, 100)
+            HStack {
+                Spacer()
+
+                Button(action: {
+                    self.selectedButton = "4동"
+                }) {
+                    Text("4동")
+                        .fontWeight(.semibold)
+                        .foregroundColor(selectedButton == "4동" ? Color.white : Color("mainColor"))
+                        .padding(.all, 10.0)
+                        .frame(width: 140.0, height: 50.0)
+                        .background(selectedButton == "4동" ? Color("mainColor") : Color.white)
+                        .cornerRadius(40)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 40)
+                                .stroke(Color("mainColor"), lineWidth: 2)
+                        )
+                }
+                Spacer()
+
+                Button(action: {
+                    self.selectedButton = "5동"
+                }) {
+                    Text("5동")
+                        .fontWeight(.semibold)
+                        .foregroundColor(selectedButton == "5동" ? Color.white : Color("mainColor"))
+                        .padding(.all, 10.0)
+                        .frame(width: 140.0, height: 50.0)
+                        .background(selectedButton == "5동" ? Color("mainColor") : Color.white)
+                        .cornerRadius(40)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 40)
+                                .stroke(Color("mainColor"), lineWidth: 2)
+                        )
+                }
+                Spacer()
+            }
+            .padding(.bottom, 20)
+            HStack {
+                Spacer()
+                Button(action: {
+                    self.selectedButton = "7동"
+                }) {
+                    Text("7동")
+                        .fontWeight(.semibold)
+                        .foregroundColor(selectedButton == "7동" ? Color.white : Color("mainColor"))
+                        .padding(.all, 10.0)
+                        .frame(width: 140.0, height: 50.0)
+                        .background(selectedButton == "7동" ? Color("mainColor") : Color.white)
+                        .cornerRadius(40)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 40)
+                                .stroke(Color("mainColor"), lineWidth: 2)
+                        )
+                }
+                Spacer()
+                Button(action: {
+                    self.selectedButton = "9동"
+                }) {
+                    Text("9동")
+                        .fontWeight(.semibold)
+                        .foregroundColor(selectedButton == "9동" ? Color.white : Color("mainColor"))
+                        .padding(.all, 10.0)
+                        .frame(width: 140.0, height: 50.0)
+                        .background(selectedButton == "9동" ? Color("mainColor") : Color.white)
+                        .cornerRadius(40)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 40)
+                                .stroke(Color("mainColor"), lineWidth: 2)
+                        )
+                }
+                Spacer()
+            }
+            .padding(.bottom, 20)
+            HStack {
+                Spacer()
+                Button(action: {
+                    self.selectedButton = "11동"
+                }) {
+                    Text("11동")
+                        .fontWeight(.semibold)
+                        .foregroundColor(selectedButton == "11동" ? Color.white : Color("mainColor"))
+                        .padding(.all, 10.0)
+                        .frame(width: 140.0, height: 50.0)
+                        .background(selectedButton == "11동" ? Color("mainColor") : Color.white)
                         .cornerRadius(40)
                         .overlay(
                             RoundedRectangle(cornerRadius: 40)
@@ -1174,68 +1387,7 @@ struct Survey11View: View {
     }
 }
 
-struct TestingView: View {
-    @State private var currentViewIndex = 0
-    @State private var isUserNameSetViewActive = false
-    @State private var user = User()
-    
-    var body: some View {
-        NavigationView {
-            VStack {
-                ProgressView(value: Double(currentViewIndex), total: Double(10))
-                    .padding(.all)
-                    .progressViewStyle(LinearProgressViewStyle(tint: Color("mainColor")))
-                
-                if currentViewIndex == 0 {
-                    Survey1View()
-                } else if currentViewIndex == 1 {
-                    Survey2View()
-                } else if currentViewIndex == 2 {
-                    Survey3View()
-                } else if currentViewIndex == 3 {
-                    Survey4View()
-                } else if currentViewIndex == 4 {
-                    Survey5View()
-                } else if currentViewIndex == 5 {
-                    Survey6View()
-                } else if currentViewIndex == 6 {
-                    Survey7View()
-                } else if currentViewIndex == 7 {
-                    Survey8View()
-                } else if currentViewIndex == 8 {
-                    Survey9View()
-                } else if currentViewIndex == 9 {
-                    Survey10View()
-                } else if currentViewIndex == 10 {
-                    Survey11View()
-                }
-                
-                Spacer()
-                
-                HStack {
-                    if currentViewIndex > 0 {
-                        Button("이전") {
-                            currentViewIndex -= 1
-                        }
-                    }
-                    
-                    Spacer()
-                    
-                    NavigationLink(destination: UserNameSetView(user: $user), isActive: $isUserNameSetViewActive) {
-                        Button("다음") {
-                            if currentViewIndex < 10 {
-                                currentViewIndex += 1
-                            } else {
-                                isUserNameSetViewActive = true
-                            }
-                        }
-                    }
-                }
-                .padding()
-            }
-        }
-    }
-}
+
 
 
 struct TestingView_Previews: PreviewProvider {

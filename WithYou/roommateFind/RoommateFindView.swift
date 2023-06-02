@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct RoommateFindView: View {
+    var user: User
     @Binding var selection: Int
     @State private var favorite = false
     @ObservedObject var anothers = Anothers()
@@ -29,19 +30,43 @@ struct RoommateFindView: View {
     @State var selectedAlarm = ""
 
     var filteredAnothers: [Another] {
-        if favorite {
-            return anothers.AnotherArr.filter { $0.favorit }
-        } else {
-            if filterArr.isEmpty {
-                return anothers.AnotherArr
+        if user.gender == "남성" {
+            if favorite {
+                return anothers.AnotherArr.filter { $0.favorit && $0.gender == "남성" }
+
             } else {
-                return anothers.AnotherArr.filter { object in
-                    filterArr.compactMap { $0 }.allSatisfy { category in
-                        object.categories.contains(category)
+                if filterArr.isEmpty {
+                    return anothers.AnotherArr.filter { $0.gender == "남성" }
+
+                } else {
+                    return anothers.AnotherArr.filter { object in
+                        filterArr.compactMap { $0 }.allSatisfy { category in
+                            object.categories.contains(category)
+                        } && object.gender == "남성"
                     }
+
+                }
+            }
+            
+        } else {
+            if favorite {
+                return anothers.AnotherArr.filter { $0.favorit && $0.gender == "여성" }
+
+            } else {
+                if filterArr.isEmpty {
+                    return anothers.AnotherArr.filter { $0.gender == "여성" }
+
+                } else {
+                    return anothers.AnotherArr.filter { object in
+                        filterArr.compactMap { $0 }.allSatisfy { category in
+                            object.categories.contains(category)
+                        } && object.gender == "여성"
+                    }
+
                 }
             }
         }
+        
     }
 
     var body: some View {
@@ -91,7 +116,7 @@ struct RoommateFindView: View {
             .padding()
             .sheet(isPresented: $isRoomateFilter) {
                 RoommateFilterView(
-                    isRoomateFilter: $isRoomateFilter,
+                    user: user, isRoomateFilter: $isRoomateFilter,
                     selectedDormitory1: $selectedDormitory1,
                     selectedGrade: $selectedGrade,
                     selectedMbti1: $selectedMbti1,
@@ -113,6 +138,7 @@ struct RoommateFindView: View {
 }
 
 struct RoommateFilterView: View {
+    var user: User
     @Binding var isRoomateFilter: Bool
     @Binding var selectedDormitory1: String
     @Binding var selectedGrade: String
@@ -157,8 +183,12 @@ struct RoommateFilterView: View {
                     
                  }
                 VStack {
+                    if user.gender == "남성" {
+                        Filter1View(selectedDormitory1: $selectedDormitory1)
+                    } else {
+                        Filter1_1View(selectedDormitory1: $selectedDormitory1)
+                    }
                     
-                    Filter1View(selectedDormitory1: $selectedDormitory1)
                     Filter2View(selectedGrade: $selectedGrade)
                     Filter3View(
                         selectedMbti1: $selectedMbti1,
@@ -324,6 +354,51 @@ struct Filter1View: View {
                         )
                 }
                 Button(action: {
+                    if selectedDormitory1 == "3동" {
+                        selectedDormitory1 = ""
+                    } else {
+                        selectedDormitory1 = "3동"
+                    }
+                }) {
+                    Text("3동")
+                        .fontWeight(.semibold)
+                        .frame(width: 46.0, height: 20.0)
+                        .foregroundColor(selectedDormitory1 == "3동" ? Color.white : Color("mainColor"))
+                        .padding(.vertical, 10.0)
+                        .padding(.horizontal, 16.0)
+                        .background(selectedDormitory1 == "3동" ? Color("mainColor") : Color.white)
+                        .cornerRadius(40)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 40)
+                                .stroke(Color("mainColor"), lineWidth: 2)
+                        )
+                }
+                Button(action: {
+                    if selectedDormitory1 == "6동" {
+                        selectedDormitory1 = ""
+                    } else {
+                        selectedDormitory1 = "6동"
+                    }
+                }) {
+                    Text("6동")
+                        .fontWeight(.semibold)
+                        .frame(width: 46.0, height: 20.0)
+                        .foregroundColor(selectedDormitory1 == "6동" ? Color.white : Color("mainColor"))
+                        .padding(.vertical, 10.0)
+                        .padding(.horizontal, 16.0)
+                        .background(selectedDormitory1 == "6동" ? Color("mainColor") : Color.white)
+                        .cornerRadius(40)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 40)
+                                .stroke(Color("mainColor"), lineWidth: 2)
+                        )
+                }
+                Spacer() // 왼쪽에 붙도록 Spacer 추가
+            }
+            HStack(spacing: 10) {
+                Spacer()
+                    .frame(width: 10)
+                Button(action: {
                     if selectedDormitory1 == "8동" {
                         selectedDormitory1 = ""
                     } else {
@@ -343,11 +418,6 @@ struct Filter1View: View {
                                 .stroke(Color("mainColor"), lineWidth: 2)
                         )
                 }
-                Spacer() // 왼쪽에 붙도록 Spacer 추가
-            }
-            HStack(spacing: 10) {
-                Spacer()
-                    .frame(width: 10)
                 Button(action: {
                     if selectedDormitory1 == "10동" {
                         selectedDormitory1 = ""
@@ -382,6 +452,134 @@ struct Filter1View: View {
                         .padding(.vertical, 10.0)
                         .padding(.horizontal, 16.0)
                         .background(selectedDormitory1 == "개척관" ? Color("mainColor") : Color.white)
+                        .cornerRadius(40)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 40)
+                                .stroke(Color("mainColor"), lineWidth: 2)
+                        )
+                }
+                Spacer() // 왼쪽에 붙도록 Spacer 추가
+            }
+            .padding(.bottom, 10)
+        }
+    }
+}
+//DormitoryselectedButton 여자기숙사
+struct Filter1_1View: View {
+    @Binding var selectedDormitory1: String
+    
+    var body: some View{
+        VStack{
+            // 기숙사
+            HStack {
+                Text("기숙사")
+                    .font(.system(size: 24))
+                    .fontWeight(.semibold)
+                    .padding(.all)
+                Spacer()
+            }
+            HStack(spacing: 10) { // 버튼 간의 간격을 설정합니다
+                Spacer()
+                    .frame(width: 10)
+                Button(action: {
+                    if selectedDormitory1 == "4동" {
+                        selectedDormitory1 = ""
+                    } else {
+                        selectedDormitory1 = "4동"
+                    }
+                }) {
+                    Text("4동")
+                        .fontWeight(.semibold)
+                        .frame(width: 46.0, height: 20.0)
+                        .foregroundColor(selectedDormitory1 == "4동" ? Color.white : Color("mainColor"))
+                        .padding(.vertical, 10.0) // 상하 여백을 설정합니다
+                        .padding(.horizontal, 16.0) // 좌우 여백을 설정합니다
+                        .background(selectedDormitory1 == "4동" ? Color("mainColor") : Color.white)
+                        .cornerRadius(40)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 40)
+                                .stroke(Color("mainColor"), lineWidth: 2)
+                        )
+                }
+                Button(action: {
+                    if selectedDormitory1 == "5동" {
+                        selectedDormitory1 = ""
+                    } else {
+                        selectedDormitory1 = "5동"
+                    }
+                }) {
+                    Text("5동")
+                        .fontWeight(.semibold)
+                        .frame(width: 46.0, height: 20.0)
+                        .foregroundColor(selectedDormitory1 == "5동" ? Color.white : Color("mainColor"))
+                        .padding(.vertical, 10.0)
+                        .padding(.horizontal, 16.0)
+                        .background(selectedDormitory1 == "5동" ? Color("mainColor") : Color.white)
+                        .cornerRadius(40)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 40)
+                                .stroke(Color("mainColor"), lineWidth: 2)
+                        )
+                }
+                Button(action: {
+                    if selectedDormitory1 == "7동" {
+                        selectedDormitory1 = ""
+                    } else {
+                        selectedDormitory1 = "7동"
+                    }
+                }) {
+                    Text("7동")
+                        .fontWeight(.semibold)
+                        .frame(width: 46.0, height: 20.0)
+                        .foregroundColor(selectedDormitory1 == "7동" ? Color.white : Color("mainColor"))
+                        .padding(.vertical, 10.0)
+                        .padding(.horizontal, 16.0)
+                        .background(selectedDormitory1 == "7동" ? Color("mainColor") : Color.white)
+                        .cornerRadius(40)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 40)
+                                .stroke(Color("mainColor"), lineWidth: 2)
+                        )
+                }
+                Spacer() // 왼쪽에 붙도록 Spacer 추가
+            }
+            HStack(spacing: 10) {
+                Spacer()
+                    .frame(width: 10)
+                Button(action: {
+                    if selectedDormitory1 == "9동" {
+                        selectedDormitory1 = ""
+                    } else {
+                        selectedDormitory1 = "9동"
+                    }
+                }) {
+                    Text("9동")
+                        .fontWeight(.semibold)
+                        .frame(width: 46.0, height: 20.0)
+                        .foregroundColor(selectedDormitory1 == "9동" ? Color.white : Color("mainColor"))
+                        .padding(.vertical, 10.0)
+                        .padding(.horizontal, 16.0)
+                        .background(selectedDormitory1 == "9동" ? Color("mainColor") : Color.white)
+                        .cornerRadius(40)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 40)
+                                .stroke(Color("mainColor"), lineWidth: 2)
+                        )
+                }
+                Button(action: {
+                    if selectedDormitory1 == "11동" {
+                        selectedDormitory1 = ""
+                    } else {
+                        selectedDormitory1 = "11동"
+                    }
+                }) {
+                    Text("11동")
+                        .fontWeight(.semibold)
+                        .frame(width: 46.0, height: 20.0)
+                        .foregroundColor(selectedDormitory1 == "11동" ? Color.white : Color("mainColor"))
+                        .padding(.vertical, 10.0)
+                        .padding(.horizontal, 16.0)
+                        .background(selectedDormitory1 == "11동" ? Color("mainColor") : Color.white)
                         .cornerRadius(40)
                         .overlay(
                             RoundedRectangle(cornerRadius: 40)
@@ -1476,9 +1674,10 @@ struct Filter10View: View {
 
 struct RoommateFindView_Previews: PreviewProvider {
     @State static private var selection = 1
+    static var user = User()
     
     static var previews: some View {
-        return RoommateFindView(selection: $selection)
+        return RoommateFindView(user: user, selection: $selection)
             .environmentObject(Anothers())
     }
 }
