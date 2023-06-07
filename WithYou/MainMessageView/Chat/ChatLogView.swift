@@ -153,15 +153,16 @@ class ChatLogViewModel: ObservableObject {
 }
 
 struct ChatLogView: View {
-    
     let chatUser: ChatUser?
     
     init(chatUser: ChatUser?) {
         self.chatUser = chatUser
-        self.vm = .init(chatUser: chatUser)
+        _vm = ObservedObject(wrappedValue: ChatLogViewModel(chatUser: chatUser))
     }
+
     
     @ObservedObject var vm: ChatLogViewModel
+    @State var isButtonPressed = false
     
     var body: some View {
         ZStack {
@@ -170,11 +171,12 @@ struct ChatLogView: View {
         }
         .navigationTitle(chatUser?.email ?? "")
             .navigationBarTitleDisplayMode(.inline)
-//            .navigationBarItems(trailing: Button(action: {
-//                vm.count += 1
-//            }, label: {
-//                Text("Count: \(vm.count)")
-//            }))
+            .navigationBarItems(trailing: Button(action: {
+                isButtonPressed.toggle()
+            }) {
+                Image(systemName: "person.fill.checkmark")
+                    .foregroundColor(isButtonPressed ? .blue : .gray)
+            })
     }
     
     static let emptyScrollToString = "Empty"
@@ -287,7 +289,9 @@ struct ChatLogView_Previews: PreviewProvider {
         //        NavigationView {
         //            ChatLogView(chatUser: .init(data: ["uid": "R8ZrxIT4uRZMVZeWwWeQWPI5zUE3", "email": "user5@gmail.com"]))
         //        }
-        MainMessagesView()
+        let isButtonPressed = Binding.constant(false)
+        
+        MainMessagesView(isButtonPressed: isButtonPressed)
     }
 }
 

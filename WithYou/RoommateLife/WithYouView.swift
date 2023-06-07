@@ -8,13 +8,14 @@
 import SwiftUI
 
 struct WithYouView: View {
+    var user: User
     
     var body: some View {
             VStack {
                 HStack {
                     MyProfileConView()
                         .padding([.top, .leading])
-                    roomnateProfileView(roommate: Another(id: UUID(), name: "6관 청소 마스터", categories: ["Category 1", "8동", "2학년"]))
+                    roomnateProfileView(roommate: user.roommate ?? Another(id: UUID(), name: "셈플 룸메이트", categories: ["Category 1", "8동", "2학년"]))
                         .padding([.top, .trailing])
                     Spacer()
                 }
@@ -33,7 +34,11 @@ struct WithYouView: View {
 }
 
 struct WithYouView_Previews: PreviewProvider {
+    
+    
     static var previews: some View {
-        WithYouView()
+        let user = User(name: "John Doe")
+        
+        WithYouView(user: user)
     }
 }

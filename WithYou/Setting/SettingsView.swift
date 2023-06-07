@@ -333,6 +333,8 @@ struct nicknameSettingVeiw: View {
     @State private var nickname: String = ""
     @State private var isSettingViewPresented = false
     
+    @State static private var selection = 1
+    
     var body: some View {
         VStack(alignment:.leading) {
             Text("닉네임")
@@ -363,7 +365,7 @@ struct nicknameSettingVeiw: View {
                 .buttonStyle(.bordered)
                 .controlSize(.large)
                 .fullScreenCover(isPresented: $isSettingViewPresented, content: {
-                    ContentView(user:$user)
+                    ContentView(selection: nicknameSettingVeiw.$selection, user:$user)
                 })
                 
                 Spacer()

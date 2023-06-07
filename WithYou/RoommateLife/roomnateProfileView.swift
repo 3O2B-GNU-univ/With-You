@@ -22,7 +22,7 @@ struct roomnateProfileView: View {
             }
             Text(roommate.name)
                 .fontWeight(.regular)
-                .frame(width: 80, height: 10)
+                .frame(width: 100, height: 10)
         }
     }
 }

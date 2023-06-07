@@ -12,6 +12,8 @@ struct TestingView: View {
     @State private var isUserNameSetViewActive = false
     @State private var user = User()
     
+    @State private var selection = 1
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -56,7 +58,7 @@ struct TestingView: View {
                     
                     Spacer()
                     
-                    NavigationLink(destination: UserNameSetView(user: $user), isActive: $isUserNameSetViewActive) {
+                    NavigationLink(destination: UserNameSetView(user: $user, selection: $selection), isActive: $isUserNameSetViewActive) {
                         Button("다음") {
                             if currentViewIndex < 10 {
                                 currentViewIndex += 1

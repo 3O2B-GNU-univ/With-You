@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct RoommateFindView: View {
-    var user: User
+    @Binding var user: User
     @Binding var selection: Int
     @State private var favorite = false
     @ObservedObject var anothers = Anothers()
@@ -87,7 +87,7 @@ struct RoommateFindView: View {
                 
                 List(filteredAnothers) { another in
                     ZStack {
-                        NavigationLink(destination: DetailVeiwFront(selection: $selection, another: another)) {
+                        NavigationLink(destination: DetailVeiwFront(selection: $selection, user: $user, another: another)) {
                             EmptyView()
                         }
                         .opacity(0)
@@ -1674,10 +1674,11 @@ struct Filter10View: View {
 
 struct RoommateFindView_Previews: PreviewProvider {
     @State static private var selection = 1
-    static var user = User()
     
     static var previews: some View {
-        return RoommateFindView(user: user, selection: $selection)
+        let user = User(name: "John Doe")
+        
+        return RoommateFindView(user: .constant(user), selection: $selection)
             .environmentObject(Anothers())
     }
 }

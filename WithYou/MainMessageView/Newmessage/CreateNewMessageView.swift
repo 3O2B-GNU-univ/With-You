@@ -93,7 +93,8 @@ struct CreateNewMessageView: View {
 
 struct CreateNewMessageView_Previews: PreviewProvider {
     static var previews: some View {
+        let isButtonPressed = Binding.constant(false)
 //        CreateNewMessageView()
-        MainMessagesView()
+        MainMessagesView(isButtonPressed: isButtonPressed)
     }
 }

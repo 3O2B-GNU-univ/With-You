@@ -10,6 +10,8 @@ import SwiftUI
 struct UserNameSetView: View {
     @Binding var user: User
     @State private var isContentViewActive = false
+    
+    @Binding var selection: Int
 
     var body: some View {
         VStack {
@@ -27,7 +29,7 @@ struct UserNameSetView: View {
                 .padding(.horizontal, 50.0)
                 .padding(.bottom, 10)
             NavigationLink(
-                destination: ContentView(user: $user),
+                destination: ContentView(selection: $selection, user: $user),
                 isActive: $isContentViewActive,
                 label: {
                     Button(action: {
@@ -53,8 +55,10 @@ struct UserNameSetView: View {
 }
 
 struct UserNameSetView_Previews: PreviewProvider {
+    @State static private var selection = 1
+    
     static var previews: some View {
         let user = User(name: "John Doe") // 임의의 User 객체 생성
-        return UserNameSetView(user: .constant(user))
+        return UserNameSetView(user: .constant(user), selection: $selection)
     }
 }

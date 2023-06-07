@@ -10,10 +10,39 @@
 
 
 import SwiftUI
+import Combine
+
+class DetailViewModel: ObservableObject {
+    @Binding var selection: Int
+    @Binding var user: User
+    var another: Another
+    
+    @Environment(\.presentationMode) var presentationMode
+    
+    @Published var refresh: Bool
+    
+    init(selection: Binding<Int>, user: Binding<User>, another: Another, refresh: Bool = false) {
+        _selection = selection
+        _user = user
+        self.another = another
+        _refresh = Published(initialValue: refresh)
+    }
+    
+    func applyChanges() {
+        selection = 3
+        user.roommate = another
+        refresh = true
+        presentationMode.wrappedValue.dismiss()
+    }
+}
 
 struct DetailVeiwFront: View {
     @Binding var selection: Int
+    @Binding var user: User
     var another: Another
+    
+    @State private var isSettingViewPresented = false
+    
     
     var body: some View {
             VStack {
@@ -36,6 +65,8 @@ struct DetailVeiwFront: View {
                 HStack {
                     Button {
                         selection = 3
+                        user.roommate = another
+                        isSettingViewPresented = true
                     } label: {
                         HStack {
                                 Image(systemName: "message")
@@ -49,6 +80,10 @@ struct DetailVeiwFront: View {
                         .cornerRadius(30)
                         .padding(.trailing, 30)
                     }
+                    .fullScreenCover(isPresented: $isSettingViewPresented, content: {
+                        ContentView(selection: $selection, user:$user)
+                    })
+                    
 
 
                     
@@ -157,7 +192,9 @@ struct DetailVeiwFrontPreviews: PreviewProvider {
     @State static private var selection = 1
     
     static var previews: some View {
-        DetailVeiwFront(selection: $selection, another: Another(id: UUID(), name: "Sample User", score: 3.3, categories: ["Category 1", "8동", "3학년","E","N","T","J","9시","22시","없음",
-                                                                                                                          "매일","중", "안함", "중간"]))
+        let user = User(name: "John Doe")
+        
+        DetailVeiwFront(selection: $selection, user: .constant(user), another: Another(id: UUID(), name: "Sample User", score: 3.3, categories: ["Category 1", "8동", "3학년","E","N","T","J","9시","22시","없음",
+                                                                                                                                                 "매일","중", "안함", "중간"]))
     }
 }

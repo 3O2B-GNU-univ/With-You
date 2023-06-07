@@ -114,11 +114,10 @@ class MainMessagesViewModel: ObservableObject {
 }
 
 struct MainMessagesView: View {
+    @Binding var isButtonPressed: Bool
     
     @State var shouldShowLogOutOptions = false
-    
     @State var shouldNavigateToChatLogView = false
-    
     @ObservedObject private var vm = MainMessagesViewModel()
     
     var body: some View {
@@ -149,7 +148,8 @@ struct MainMessagesView: View {
 
 struct MainMessagesView_Previews: PreviewProvider {
     static var previews: some View {
+        let isButtonPressed = Binding.constant(false)
 
-        MainMessagesView()
+        MainMessagesView(isButtonPressed: isButtonPressed)
     }
 }
